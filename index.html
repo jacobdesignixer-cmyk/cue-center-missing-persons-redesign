@@ -6,34 +6,46 @@
     <title>CUE Center for Missing Persons | Community United Effort | Modern WordPress Concept</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/cue-icon.jpg" type="image/jpeg">
     <style>
         :root {
-            --bg-primary: #070c18;
-            --bg-secondary: #0c1426;
-            --card-glass: rgba(15, 23, 42, 0.65);
-            --card-glass-hover: rgba(26, 38, 66, 0.75);
-            --card-glass-light: rgba(255, 255, 255, 0.05);
-            --border-glass: rgba(255, 255, 255, 0.12);
-            --border-glass-bright: rgba(255, 255, 255, 0.28);
-            --accent-red: #e11d48;
-            --accent-red-hover: #f43f5e;
-            --accent-amber: #f59e0b;
-            --accent-amber-glow: rgba(245, 158, 11, 0.25);
-            --accent-cyan: #0ea5e9;
-            --accent-blue: #2563eb;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-subtle: #f1f5f9;
+            --bg-card-light: #ffffff;
+            --card-glass: rgba(255, 255, 255, 0.88);
+            --card-glass-hover: #ffffff;
+            --card-glass-subtle: rgba(248, 250, 252, 0.9);
+            --border-glass: rgba(226, 232, 240, 0.95);
+            --border-glass-bright: #cbd5e1;
+            --border-focus: #dc2626;
+            --accent-red: #dc2626;
+            --accent-red-hover: #b91c1c;
+            --accent-red-light: #fef2f2;
+            --accent-red-border: #fecaca;
+            --accent-amber: #d97706;
+            --accent-amber-light: #fffbeb;
+            --accent-amber-border: #fde68a;
+            --accent-blue: #0284c7;
+            --accent-blue-light: #f0f9ff;
+            --accent-emerald: #059669;
+            --accent-emerald-light: #ecfdf5;
+            --text-main: #0f172a;
+            --text-heading: #090e17;
+            --text-muted: #475569;
             --text-dim: #64748b;
+            --text-light: #94a3b8;
             --radius-sm: 8px;
             --radius-md: 14px;
             --radius-lg: 20px;
             --radius-xl: 28px;
-            --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
-            --shadow-glow-red: 0 0 35px -5px rgba(225, 29, 72, 0.35);
-            --shadow-glow-amber: 0 0 35px -5px rgba(245, 158, 11, 0.3);
-            --backdrop-blur: blur(18px);
+            --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.04);
+            --shadow-glass: 0 12px 32px -6px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+            --shadow-glass-hover: 0 22px 48px -10px rgba(15, 23, 42, 0.12), 0 8px 18px -4px rgba(15, 23, 42, 0.06);
+            --shadow-glow-red: 0 8px 24px -4px rgba(220, 38, 38, 0.3);
+            --shadow-glow-amber: 0 8px 24px -4px rgba(217, 119, 6, 0.28);
+            --backdrop-blur: blur(20px);
         }
 
         * {
@@ -49,9 +61,9 @@
             line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(225, 29, 72, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 25%, rgba(14, 165, 233, 0.09) 0%, transparent 45%),
-                radial-gradient(circle at 50% 70%, rgba(245, 158, 11, 0.06) 0%, transparent 50%);
+                radial-gradient(circle at 10% 12%, rgba(220, 38, 38, 0.035) 0%, transparent 45%),
+                radial-gradient(circle at 90% 18%, rgba(2, 132, 199, 0.04) 0%, transparent 45%),
+                radial-gradient(circle at 50% 65%, rgba(217, 119, 6, 0.03) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
@@ -74,39 +86,39 @@
             padding: 0 24px;
         }
 
-        /* Ambient glowing background shapes */
+        /* Ambient Glowing Shapes (Very Subtle on White) */
         .ambient-orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(90px);
+            filter: blur(100px);
             pointer-events: none;
             z-index: 0;
-            opacity: 0.55;
+            opacity: 0.45;
             transition: all 0.8s ease;
         }
         .orb-1 {
-            width: 450px;
-            height: 450px;
-            background: rgba(225, 29, 72, 0.18);
-            top: 5%;
-            left: -100px;
-        }
-        .orb-2 {
             width: 500px;
             height: 500px;
-            background: rgba(14, 165, 233, 0.15);
-            top: 40%;
+            background: rgba(220, 38, 38, 0.06);
+            top: 2%;
+            left: -120px;
+        }
+        .orb-2 {
+            width: 550px;
+            height: 550px;
+            background: rgba(2, 132, 199, 0.05);
+            top: 35%;
             right: -150px;
         }
         .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: rgba(245, 158, 11, 0.12);
-            bottom: 10%;
-            left: 20%;
+            width: 450px;
+            height: 450px;
+            background: rgba(217, 119, 6, 0.04);
+            bottom: 15%;
+            left: 25%;
         }
 
-        /* Glass Surface Utility */
+        /* Luminous White Glass Surfaces */
         .glass-panel {
             background: var(--card-glass);
             backdrop-filter: var(--backdrop-blur);
@@ -116,34 +128,34 @@
             box-shadow: var(--shadow-glass);
             position: relative;
             z-index: 1;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .glass-panel-light {
-            background: rgba(255, 255, 255, 0.04);
+        .glass-panel:hover {
+            border-color: var(--border-glass-bright);
+            box-shadow: var(--shadow-glass-hover);
+        }
+
+        .glass-panel-subtle {
+            background: var(--card-glass-subtle);
             backdrop-filter: var(--backdrop-blur);
             -webkit-backdrop-filter: var(--backdrop-blur);
             border: 1px solid var(--border-glass);
             border-radius: var(--radius-md);
         }
 
-        .glass-panel:hover {
-            border-color: var(--border-glass-bright);
-        }
-
         /* ============================================================
-           1. TOP 24/7 CRISIS DISPATCH BAR
+           1. TOP 24/7 EMERGENCY CRISIS DISPATCH BAR
            ============================================================ */
         .top-emergency-bar {
-            background: rgba(225, 29, 72, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            color: #fff;
+            background: linear-gradient(90deg, #dc2626 0%, #b91c1c 100%);
+            color: #ffffff;
             padding: 9px 0;
             font-size: 13.5px;
             font-weight: 600;
             position: relative;
             z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 10px rgba(220, 38, 38, 0.2);
         }
         .top-emergency-inner {
             display: flex;
@@ -157,12 +169,14 @@
             align-items: center;
             gap: 8px;
             letter-spacing: 0.5px;
+            font-size: 13px;
+            font-weight: 700;
             text-transform: uppercase;
         }
         .pulse-dot {
-            width: 9px;
-            height: 9px;
-            background-color: #fff;
+            width: 8px;
+            height: 8px;
+            background-color: #ffffff;
             border-radius: 50%;
             display: inline-block;
             box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
@@ -170,28 +184,29 @@
         }
         @keyframes pulse-ring {
             0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8); }
-            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            70% { box-shadow: 0 0 0 9px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
         }
         .emergency-phones {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 14px;
         }
         .emergency-link {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            color: #fff;
+            color: #ffffff;
             font-weight: 700;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.18);
             padding: 3px 12px;
             border-radius: 999px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            transition: all 0.2s ease;
         }
         .emergency-link:hover {
-            background: rgba(0, 0, 0, 0.4);
-            transform: scale(1.03);
+            background: rgba(0, 0, 0, 0.35);
+            transform: scale(1.02);
         }
         .emergency-actions {
             display: flex;
@@ -199,39 +214,42 @@
             align-items: center;
         }
         .top-btn-tip {
-            background: #fff;
+            background: #ffffff;
             color: var(--accent-red);
-            font-weight: 700;
-            padding: 3px 14px;
+            font-weight: 800;
+            padding: 4px 14px;
             border-radius: 999px;
-            font-size: 12.5px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
         .top-btn-tip:hover {
-            background: #ffe4e6;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: #fee2e2;
+            color: var(--accent-red-hover);
+            transform: translateY(-1px);
         }
 
         /* ============================================================
-           2. MAIN NAVIGATION (GLASSMORPHISM CORPORATE)
+           2. MAIN NAVIGATION (CRISP WHITE GLASSMORPHISM)
            ============================================================ */
         .site-header {
             position: sticky;
             top: 0;
             z-index: 90;
-            background: rgba(7, 12, 24, 0.75);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: var(--backdrop-blur);
             -webkit-backdrop-filter: var(--backdrop-blur);
             border-bottom: 1px solid var(--border-glass);
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
             transition: all 0.3s ease;
         }
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 0;
+            padding: 12px 0;
             gap: 20px;
         }
         .brand-logo-wrap {
@@ -244,10 +262,12 @@
             height: 54px;
             width: auto;
             border-radius: var(--radius-sm);
-            background: #fff;
-            padding: 4px 8px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            background: #ffffff;
+            padding: 2px 4px;
+            transition: transform 0.25s;
+        }
+        .brand-logo-wrap:hover .brand-logo-img {
+            transform: scale(1.03);
         }
         .brand-text-block {
             display: flex;
@@ -255,19 +275,19 @@
         }
         .brand-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 20px;
+            font-size: 21px;
             font-weight: 800;
-            letter-spacing: -0.3px;
-            color: #fff;
+            letter-spacing: -0.4px;
+            color: var(--text-heading);
             line-height: 1.1;
         }
         .brand-title span {
-            color: var(--accent-amber);
+            color: var(--accent-red);
         }
         .brand-subtitle {
             font-size: 11px;
-            font-weight: 500;
-            color: var(--text-muted);
+            font-weight: 600;
+            color: var(--text-dim);
             letter-spacing: 0.8px;
             text-transform: uppercase;
         }
@@ -276,7 +296,7 @@
             display: flex;
             align-items: center;
             list-style: none;
-            gap: 6px;
+            gap: 4px;
         }
         .menu-link {
             padding: 8px 14px;
@@ -285,22 +305,21 @@
             color: var(--text-muted);
             border-radius: var(--radius-sm);
             transition: all 0.2s ease;
-            position: relative;
             display: flex;
             align-items: center;
             gap: 4px;
         }
         .menu-link:hover, .menu-link.active {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.07);
+            color: var(--accent-red);
+            background: var(--accent-red-light);
         }
         .menu-badge {
             font-size: 10px;
-            padding: 2px 6px;
+            padding: 2px 7px;
             background: var(--accent-red);
-            color: #fff;
+            color: #ffffff;
             border-radius: 999px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         /* Sector Dropdown Menu */
@@ -311,14 +330,14 @@
             position: absolute;
             top: 100%;
             left: 0;
-            width: 290px;
-            background: rgba(13, 20, 36, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
+            width: 300px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-glass-bright);
             border-radius: var(--radius-md);
             padding: 10px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.15);
             opacity: 0;
             visibility: hidden;
             transform: translateY(10px);
@@ -328,7 +347,7 @@
         .has-dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
-            transform: translateY(4px);
+            transform: translateY(6px);
         }
         .dropdown-item {
             display: flex;
@@ -342,8 +361,8 @@
             transition: all 0.2s;
         }
         .dropdown-item:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-heading);
+            background: var(--bg-subtle);
             transform: translateX(4px);
         }
         .dropdown-item .icon {
@@ -358,9 +377,9 @@
             gap: 12px;
         }
         .btn-glass-report {
-            background: rgba(225, 29, 72, 0.15);
-            border: 1px solid rgba(225, 29, 72, 0.45);
-            color: #fecdd3;
+            background: var(--accent-red-light);
+            border: 1px solid var(--accent-red-border);
+            color: var(--accent-red);
             font-weight: 700;
             font-size: 13.5px;
             padding: 9px 18px;
@@ -372,18 +391,18 @@
         }
         .btn-glass-report:hover {
             background: var(--accent-red);
-            color: #fff;
+            color: #ffffff;
             box-shadow: var(--shadow-glow-red);
             transform: translateY(-2px);
         }
         .btn-glass-donate {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #0f172a;
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
             font-weight: 800;
             font-size: 13.5px;
             padding: 9px 20px;
             border-radius: var(--radius-md);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -392,42 +411,39 @@
         }
         .btn-glass-donate:hover {
             transform: translateY(-2px);
-            filter: brightness(1.1);
+            filter: brightness(1.08);
         }
 
         /* ============================================================
-           3. HERO SECTION (FULL WIDTH CINEMATIC)
+           3. HERO SECTION (LUMINOUS WHITE WITH SUBTLE MEDIA)
            ============================================================ */
         .hero-section {
             position: relative;
-            padding: 80px 0 100px;
+            padding: 70px 0 90px;
             overflow: hidden;
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
         }
         .hero-bg-media {
             position: absolute;
             inset: 0;
             z-index: 0;
             overflow: hidden;
+            opacity: 0.14;
         }
         .hero-bg-media img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.28) contrast(1.15) saturate(1.1);
-            transform: scale(1.04);
-            animation: slow-pan 30s infinite alternate ease-in-out;
-        }
-        @keyframes slow-pan {
-            0% { transform: scale(1.02) translate(0, 0); }
-            100% { transform: scale(1.08) translate(-15px, -10px); }
+            filter: grayscale(0.3) contrast(1.1);
+            transform: scale(1.02);
         }
         .hero-overlay-gradient {
             position: absolute;
             inset: 0;
             background: linear-gradient(180deg, 
-                rgba(7, 12, 24, 0.82) 0%, 
-                rgba(7, 12, 24, 0.6) 40%, 
-                rgba(7, 12, 24, 0.95) 100%);
+                rgba(255, 255, 255, 0.85) 0%, 
+                rgba(255, 255, 255, 0.7) 40%, 
+                rgba(255, 255, 255, 1) 100%);
         }
 
         .hero-grid {
@@ -442,28 +458,29 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
             padding: 6px 14px;
             border-radius: 999px;
-            font-size: 12.5px;
-            font-weight: 700;
+            font-size: 12px;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: var(--accent-amber);
+            color: var(--accent-red);
             margin-bottom: 20px;
-            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm);
         }
         .hero-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 54px;
-            line-height: 1.1;
+            font-size: 52px;
+            line-height: 1.12;
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 20px;
+            letter-spacing: -0.8px;
+            color: var(--text-heading);
+            margin-bottom: 18px;
         }
         .hero-title .gradient-text {
-            background: linear-gradient(135deg, #ffffff 30%, #fecdd3 70%, #f59e0b 100%);
+            background: linear-gradient(135deg, #dc2626 0%, #b45309 80%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: block;
@@ -471,7 +488,7 @@
         .hero-motto {
             font-size: 20px;
             font-weight: 700;
-            color: #fca5a5;
+            color: var(--accent-red);
             margin-bottom: 16px;
             font-style: italic;
             display: flex;
@@ -482,52 +499,52 @@
             content: "";
             display: inline-block;
             width: 32px;
-            height: 2px;
+            height: 3px;
             background: var(--accent-red);
+            border-radius: 2px;
         }
         .hero-desc {
             font-size: 16.5px;
-            color: #cbd5e1;
-            margin-bottom: 34px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
             max-width: 620px;
             line-height: 1.7;
         }
 
-        /* Hero Search Bar (Modern Glass Input) */
+        /* Hero Search Bar (Crisp White Card with Soft Shadows) */
         .hero-search-glass {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
             border-radius: var(--radius-lg);
             padding: 8px 8px 8px 18px;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.15);
-            margin-bottom: 28px;
+            box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04);
+            margin-bottom: 26px;
             max-width: 650px;
         }
         .hero-search-glass .search-icon {
             font-size: 20px;
-            color: var(--accent-amber);
+            color: var(--accent-red);
         }
         .hero-search-input {
             flex: 1;
             background: transparent;
             border: none;
             outline: none;
-            color: #fff;
+            color: var(--text-heading);
             font-size: 15px;
             font-family: inherit;
+            font-weight: 500;
         }
         .hero-search-input::placeholder {
-            color: #64748b;
+            color: var(--text-light);
         }
         .hero-sector-select {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #e2e8f0;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
             padding: 8px 14px;
             border-radius: var(--radius-sm);
             font-size: 13.5px;
@@ -536,12 +553,12 @@
             cursor: pointer;
         }
         .hero-sector-select option {
-            background: #0f172a;
-            color: #fff;
+            background: #ffffff;
+            color: var(--text-main);
         }
         .hero-search-btn {
             background: var(--accent-red);
-            color: #fff;
+            color: #ffffff;
             border: none;
             padding: 10px 22px;
             border-radius: var(--radius-md);
@@ -569,25 +586,28 @@
             padding: 10px 18px;
             border-radius: var(--radius-md);
             font-size: 13.5px;
-            font-weight: 600;
-            backdrop-filter: blur(10px);
+            font-weight: 700;
             transition: all 0.25s;
         }
-        .cta-pill-glass {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass);
-            color: var(--text-main);
+        .cta-pill-white {
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            color: var(--text-heading);
+            box-shadow: var(--shadow-sm);
         }
-        .cta-pill-glass:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--border-glass-bright);
+        .cta-pill-white:hover {
+            background: var(--bg-subtle);
+            border-color: var(--text-muted);
             transform: translateY(-2px);
         }
 
-        /* Hero Right Card (Live Operations Radar) */
+        /* Hero Right Card (Live Operations Desk) */
         .hero-ops-card {
             padding: 30px;
             border-radius: var(--radius-xl);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.08);
             position: relative;
             overflow: hidden;
         }
@@ -596,9 +616,9 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(225, 29, 72, 0.15) 0%, transparent 70%);
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.05) 0%, transparent 70%);
             pointer-events: none;
         }
         .ops-header {
@@ -606,24 +626,24 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 22px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--border-glass);
             padding-bottom: 16px;
         }
         .ops-title {
             font-family: 'Outfit', sans-serif;
             font-size: 18px;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 800;
+            color: var(--text-heading);
         }
         .ops-status-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(16, 185, 129, 0.15);
-            border: 1px solid rgba(16, 185, 129, 0.35);
-            color: #34d399;
+            background: var(--accent-emerald-light);
+            border: 1px solid #a7f3d0;
+            color: var(--accent-emerald);
             font-size: 11.5px;
-            font-weight: 700;
+            font-weight: 800;
             padding: 4px 10px;
             border-radius: 999px;
             text-transform: uppercase;
@@ -631,7 +651,7 @@
         .ops-status-dot {
             width: 7px;
             height: 7px;
-            background: #34d399;
+            background: var(--accent-emerald);
             border-radius: 50%;
             animation: pulse-ring 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
         }
@@ -639,35 +659,66 @@
         .ops-stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-bottom: 22px;
         }
         .ops-stat-box {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glass);
             padding: 16px;
             border-radius: var(--radius-md);
             text-align: left;
             transition: all 0.2s;
         }
         .ops-stat-box:hover {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: #ffffff;
+            border-color: var(--border-glass-bright);
+            box-shadow: var(--shadow-sm);
         }
         .ops-num {
             font-family: 'Outfit', sans-serif;
             font-size: 28px;
             font-weight: 800;
-            color: var(--accent-amber);
+            color: var(--accent-red);
             line-height: 1;
             margin-bottom: 4px;
         }
         .ops-label {
             font-size: 12px;
-            color: var(--text-muted);
-            font-weight: 500;
+            color: var(--text-dim);
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .ops-active-banner {
+            background: var(--accent-red-light);
+            padding: 14px;
+            border-radius: var(--radius-md);
+            margin-bottom: 18px;
+            border: 1px solid var(--accent-red-border);
+        }
+        .ops-active-banner-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .ops-active-banner-header span:first-child {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-red);
+            text-transform: uppercase;
+        }
+        .ops-active-banner-header span:last-child {
+            font-size: 11px;
+            color: var(--accent-amber);
+            font-weight: 700;
+        }
+        .ops-active-banner p {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.45;
         }
 
         .ops-trust-seals {
@@ -676,7 +727,7 @@
             justify-content: space-between;
             gap: 14px;
             padding-top: 16px;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid var(--border-glass);
         }
         .trust-seal-item {
             display: flex;
@@ -690,26 +741,29 @@
         }
         .trust-seal-text {
             font-size: 11.5px;
-            color: var(--text-muted);
+            color: var(--text-dim);
             line-height: 1.3;
         }
         .trust-seal-text strong {
-            color: #fff;
+            color: var(--text-heading);
             display: block;
         }
 
         /* ============================================================
-           4. SIGNATURE SECTOR DESIGN HUB (CLIENT'S PRIMARY REQUIREMENT)
+           4. SIGNATURE SECTOR DESIGN HUB (PRESERVED & MODERNIZED)
            ============================================================ */
         .section-sectors {
-            padding: 100px 0 90px;
+            padding: 90px 0 80px;
             position: relative;
             z-index: 2;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
         }
         .section-header {
             text-align: center;
             max-width: 820px;
-            margin: 0 auto 50px;
+            margin: 0 auto 46px;
         }
         .section-kicker {
             font-size: 13px;
@@ -717,16 +771,16 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             color: var(--accent-red);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: block;
         }
         .section-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 40px;
+            font-size: 38px;
             font-weight: 800;
             line-height: 1.2;
-            margin-bottom: 18px;
-            color: #fff;
+            margin-bottom: 16px;
+            color: var(--text-heading);
         }
         .section-subtitle {
             font-size: 16px;
@@ -740,48 +794,55 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 36px;
+            margin-bottom: 34px;
         }
         .sector-tab-btn {
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid var(--border-glass);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
             color: var(--text-muted);
             padding: 10px 22px;
             border-radius: 999px;
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
-            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
             transition: all 0.25s ease;
             display: inline-flex;
             align-items: center;
             gap: 8px;
         }
         .sector-tab-btn:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--border-glass-bright);
+            color: var(--text-heading);
+            border-color: var(--text-muted);
+            transform: translateY(-1px);
         }
         .sector-tab-btn.active {
-            background: linear-gradient(135deg, rgba(225, 29, 72, 0.9) 0%, rgba(190, 18, 60, 0.9) 100%);
-            color: #fff;
-            border-color: rgba(255, 255, 255, 0.3);
+            background: var(--accent-red);
+            color: #ffffff;
+            border-color: var(--accent-red);
             box-shadow: var(--shadow-glow-red);
         }
         .sector-tab-btn .tab-count {
-            background: rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.08);
             font-size: 11.5px;
             padding: 2px 7px;
             border-radius: 999px;
         }
+        .sector-tab-btn.active .tab-count {
+            background: rgba(255, 255, 255, 0.25);
+            color: #ffffff;
+        }
 
-        /* Sector Showcase Card */
+        /* Sector Showcase Card (Luminous White Glass Panel) */
         .sector-main-display {
             display: grid;
             grid-template-columns: 1fr 1.15fr;
             gap: 36px;
             padding: 36px;
             border-radius: var(--radius-xl);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: var(--shadow-glass);
             align-items: center;
             margin-bottom: 60px;
         }
@@ -790,8 +851,8 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             border: 1px solid var(--border-glass);
-            background: rgba(0, 0, 0, 0.4);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            background: #f8fafc;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
         }
         .sector-media-wrap img {
             width: 100%;
@@ -805,28 +866,29 @@
             position: absolute;
             top: 16px;
             left: 16px;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--border-glass);
+            border: 1px solid var(--border-glass-bright);
             padding: 6px 14px;
             border-radius: 999px;
             font-size: 12px;
-            font-weight: 700;
-            color: var(--accent-amber);
+            font-weight: 800;
+            color: var(--accent-red);
             text-transform: uppercase;
+            box-shadow: var(--shadow-sm);
         }
 
         .sector-details-content {
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 16px;
         }
         .sector-active-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--accent-red);
             text-transform: uppercase;
             letter-spacing: 0.6px;
@@ -835,33 +897,33 @@
             font-family: 'Outfit', sans-serif;
             font-size: 32px;
             font-weight: 800;
-            color: #fff;
+            color: var(--text-heading);
         }
         .sector-summary {
             font-size: 15px;
-            color: #cbd5e1;
+            color: var(--text-muted);
             line-height: 1.65;
         }
 
-        /* State directory tag pills */
+        /* State Directory Tag Pills */
         .states-grid-label {
             font-size: 12px;
-            font-weight: 700;
-            color: var(--text-muted);
+            font-weight: 800;
+            color: var(--text-dim);
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            margin-top: 8px;
+            margin-top: 6px;
         }
         .states-tag-list {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .state-chip {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #e2e8f0;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
             padding: 5px 12px;
             border-radius: var(--radius-sm);
             font-size: 12.5px;
@@ -870,10 +932,11 @@
             cursor: pointer;
         }
         .state-chip:hover {
-            background: var(--accent-amber);
-            color: #0f172a;
-            border-color: var(--accent-amber);
+            background: var(--accent-red);
+            color: #ffffff;
+            border-color: var(--accent-red);
             transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
         }
         .sector-cta-row {
             display: flex;
@@ -883,7 +946,7 @@
         }
 
         /* ============================================================
-           5. OLD HOMEPAGE SECTOR BADGES REIMAGINED (GLASS CARDS)
+           5. CLASSIC HOMEPAGE BADGES REIMAGINED (WHITE CARDS)
            ============================================================ */
         .old-sectors-reimagined {
             margin-top: 20px;
@@ -892,20 +955,20 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 28px;
+            border-bottom: 1px solid var(--border-glass);
             padding-bottom: 16px;
         }
         .reimagined-title-bar h3 {
             font-family: 'Outfit', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #fff;
+            font-size: 23px;
+            font-weight: 800;
+            color: var(--text-heading);
         }
         .reimagined-note {
             font-size: 13.5px;
-            color: var(--accent-amber);
-            font-weight: 600;
+            color: var(--accent-red);
+            font-weight: 700;
         }
 
         .old-sectors-grid {
@@ -914,10 +977,8 @@
             gap: 18px;
         }
         .old-sector-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: var(--backdrop-blur);
-            -webkit-backdrop-filter: var(--backdrop-blur);
-            border: 1px solid var(--border-glass);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
             border-radius: var(--radius-lg);
             padding: 24px 16px;
             text-align: center;
@@ -925,43 +986,32 @@
             flex-direction: column;
             align-items: center;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            box-shadow: var(--shadow-sm);
             cursor: pointer;
-        }
-        .old-sector-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: var(--radius-lg);
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-            pointer-events: none;
         }
         .old-sector-card:hover {
             transform: translateY(-6px);
-            background: rgba(26, 38, 66, 0.75);
-            border-color: rgba(245, 158, 11, 0.4);
-            box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15);
+            border-color: var(--accent-red);
+            box-shadow: 0 16px 36px -8px rgba(15, 23, 42, 0.12);
         }
         .old-sector-thumb {
             width: 82px;
             height: 82px;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.18);
+            background: #ffffff;
+            border: 2px solid var(--border-glass-bright);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 16px;
             padding: 8px;
             transition: all 0.3s;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
         }
         .old-sector-card:hover .old-sector-thumb {
-            border-color: var(--accent-amber);
+            border-color: var(--accent-red);
             transform: scale(1.08);
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+            box-shadow: var(--shadow-glow-red);
         }
         .old-sector-thumb img {
             max-width: 100%;
@@ -970,25 +1020,26 @@
             border-radius: 50%;
         }
         .old-sector-name {
-            font-size: 14px;
-            font-weight: 700;
-            color: #fff;
+            font-size: 14.5px;
+            font-weight: 800;
+            color: var(--text-heading);
             line-height: 1.3;
             margin-bottom: 6px;
         }
         .old-sector-desc {
             font-size: 11.5px;
-            color: var(--text-muted);
-            line-height: 1.4;
+            color: var(--text-dim);
+            line-height: 1.45;
         }
 
         /* ============================================================
-           6. CORE PROFESSIONAL SERVICES
+           6. CORE PROFESSIONAL SERVICES (CLEAN WHITE GRID)
            ============================================================ */
         .section-services {
             padding: 90px 0;
             position: relative;
             z-index: 2;
+            background: #ffffff;
         }
         .services-grid {
             display: grid;
@@ -996,6 +1047,9 @@
             gap: 24px;
         }
         .service-card {
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: var(--shadow-glass);
             padding: 30px 24px;
             border-radius: var(--radius-xl);
             transition: all 0.3s ease;
@@ -1005,15 +1059,15 @@
         }
         .service-card:hover {
             transform: translateY(-6px);
-            border-color: var(--border-glass-bright);
-            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.6);
+            border-color: var(--accent-red);
+            box-shadow: var(--shadow-glass-hover);
         }
         .service-icon-wrap {
             width: 72px;
             height: 72px;
             border-radius: var(--radius-md);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-glass);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1028,8 +1082,8 @@
         .service-title {
             font-family: 'Outfit', sans-serif;
             font-size: 21px;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 800;
+            color: var(--text-heading);
             margin-bottom: 12px;
         }
         .service-points {
@@ -1037,42 +1091,45 @@
             margin-bottom: 22px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 9px;
         }
         .service-points li {
             font-size: 13.5px;
-            color: #cbd5e1;
+            color: var(--text-muted);
             display: flex;
             align-items: flex-start;
             gap: 8px;
-            line-height: 1.45;
+            line-height: 1.5;
         }
         .service-points li::before {
             content: "✓";
-            color: var(--accent-amber);
+            color: var(--accent-red);
             font-weight: 800;
         }
         .service-link {
             font-size: 13.5px;
-            font-weight: 700;
-            color: var(--accent-cyan);
+            font-weight: 800;
+            color: var(--accent-red);
             display: inline-flex;
             align-items: center;
             gap: 6px;
             margin-top: auto;
         }
         .service-link:hover {
-            color: #38bdf8;
+            color: var(--accent-red-hover);
             transform: translateX(4px);
         }
 
         /* ============================================================
-           7. FIELD CAPABILITIES & SEARCH IN ACTION
+           7. FIELD CAPABILITIES IN ACTION
            ============================================================ */
         .section-capabilities {
             padding: 90px 0;
             position: relative;
             z-index: 2;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-glass);
+            border-bottom: 1px solid var(--border-glass);
         }
         .capabilities-split {
             display: grid;
@@ -1086,8 +1143,8 @@
         .cap-img-main {
             border-radius: var(--radius-xl);
             overflow: hidden;
-            border: 1px solid var(--border-glass);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.1);
         }
         .cap-img-main img {
             width: 100%;
@@ -1096,14 +1153,14 @@
         }
         .cap-img-floating {
             position: absolute;
-            bottom: -30px;
+            bottom: -25px;
             right: -25px;
             width: 250px;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            border: 2px solid var(--border-glass-bright);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
-            background: #0f172a;
+            border: 4px solid #ffffff;
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.15);
+            background: #ffffff;
         }
         .cap-img-floating img {
             width: 100%;
@@ -1114,24 +1171,25 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--border-glass);
+            border: 1px solid var(--border-glass-bright);
             padding: 8px 16px;
             border-radius: 999px;
             font-size: 12px;
-            font-weight: 700;
-            color: #34d399;
+            font-weight: 800;
+            color: var(--accent-emerald);
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            box-shadow: var(--shadow-sm);
         }
 
         .capabilities-text {
             padding-left: 20px;
         }
         .cap-feature-list {
-            margin-top: 28px;
+            margin-top: 26px;
             display: flex;
             flex-direction: column;
             gap: 18px;
@@ -1142,37 +1200,38 @@
             align-items: flex-start;
         }
         .cap-feat-icon {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: var(--radius-md);
-            background: rgba(245, 158, 11, 0.12);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            background: var(--accent-red-light);
+            border: 1px solid var(--accent-red-border);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            color: var(--accent-amber);
+            font-size: 19px;
+            color: var(--accent-red);
             flex-shrink: 0;
         }
         .cap-feat-info h4 {
             font-size: 17px;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 800;
+            color: var(--text-heading);
             margin-bottom: 4px;
         }
         .cap-feat-info p {
             font-size: 14px;
             color: var(--text-muted);
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         /* ============================================================
-           8. ACTIVE MISSING PERSON CASES (FEED PREVIEW)
+           8. ACTIVE CASES REGISTRY PREVIEW
            ============================================================ */
         .section-cases {
             padding: 90px 0;
             position: relative;
             z-index: 2;
+            background: #ffffff;
         }
         .cases-grid {
             display: grid;
@@ -1180,6 +1239,9 @@
             gap: 28px;
         }
         .case-card {
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: var(--shadow-glass);
             border-radius: var(--radius-xl);
             overflow: hidden;
             display: flex;
@@ -1188,13 +1250,13 @@
         }
         .case-card:hover {
             transform: translateY(-8px);
-            border-color: var(--border-glass-bright);
-            box-shadow: 0 25px 50px -10px rgba(0,0,0,0.7);
+            border-color: var(--accent-red);
+            box-shadow: var(--shadow-glass-hover);
         }
         .case-thumb-wrap {
             position: relative;
             height: 240px;
-            background: #0f172a;
+            background: var(--bg-subtle);
             overflow: hidden;
         }
         .case-thumb-wrap img {
@@ -1204,33 +1266,34 @@
             transition: transform 0.5s ease;
         }
         .case-card:hover .case-thumb-wrap img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .case-tag-status {
             position: absolute;
             top: 14px;
             left: 14px;
-            background: rgba(225, 29, 72, 0.9);
-            color: #fff;
-            font-size: 11.5px;
+            background: var(--accent-red);
+            color: #ffffff;
+            font-size: 11px;
             font-weight: 800;
             padding: 4px 10px;
             border-radius: 999px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
         }
         .case-tag-sector {
             position: absolute;
             top: 14px;
             right: 14px;
-            background: rgba(15, 23, 42, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            color: var(--accent-amber);
+            color: var(--text-heading);
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
             padding: 4px 10px;
             border-radius: 999px;
-            border: 1px solid var(--border-glass);
+            border: 1px solid var(--border-glass-bright);
             text-transform: uppercase;
         }
         .case-body {
@@ -1242,25 +1305,26 @@
         .case-name {
             font-family: 'Outfit', sans-serif;
             font-size: 20px;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 800;
+            color: var(--text-heading);
             margin-bottom: 8px;
         }
         .case-meta {
             font-size: 13px;
-            color: var(--text-muted);
+            color: var(--text-dim);
             margin-bottom: 14px;
             display: flex;
             flex-direction: column;
             gap: 4px;
         }
         .case-meta span {
-            color: #cbd5e1;
+            color: var(--text-main);
+            font-weight: 600;
         }
         .case-desc {
             font-size: 13.5px;
-            color: #94a3b8;
-            line-height: 1.5;
+            color: var(--text-muted);
+            line-height: 1.55;
             margin-bottom: 20px;
         }
         .case-actions {
@@ -1270,47 +1334,53 @@
         }
         .btn-tip-case {
             flex: 1;
-            background: rgba(225, 29, 72, 0.18);
-            border: 1px solid rgba(225, 29, 72, 0.4);
-            color: #fecdd3;
+            background: var(--accent-red-light);
+            border: 1px solid var(--accent-red-border);
+            color: var(--accent-red);
             text-align: center;
             padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-tip-case:hover {
+            background: var(--accent-red);
+            color: #ffffff;
+            box-shadow: var(--shadow-glow-red);
+        }
+        .btn-share-case {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
             font-size: 13px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
         }
-        .btn-tip-case:hover {
-            background: var(--accent-red);
-            color: #fff;
-        }
-        .btn-share-case {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--border-glass);
-            color: #e2e8f0;
-            padding: 8px 14px;
-            border-radius: var(--radius-sm);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
         .btn-share-case:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: #e2e8f0;
         }
 
         /* ============================================================
-           9. GLASS DONATION & MISSION IMPACT
+           9. DONATION & MISSION IMPACT (CRISP WHITE PANEL)
            ============================================================ */
         .section-donation {
             padding: 90px 0;
             position: relative;
             z-index: 2;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-glass);
         }
         .donation-panel {
             padding: 50px 60px;
             border-radius: var(--radius-xl);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            box-shadow: var(--shadow-glass);
             display: grid;
             grid-template-columns: 1.1fr 1fr;
             gap: 50px;
@@ -1323,22 +1393,22 @@
             position: absolute;
             bottom: -50px;
             left: -50px;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.06) 0%, transparent 70%);
             pointer-events: none;
         }
         .donation-copy h3 {
             font-family: 'Outfit', sans-serif;
             font-size: 36px;
             font-weight: 800;
-            color: #fff;
+            color: var(--text-heading);
             margin-bottom: 16px;
             line-height: 1.2;
         }
         .donation-copy p {
             font-size: 16px;
-            color: #cbd5e1;
+            color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 24px;
         }
@@ -1352,19 +1422,19 @@
             align-items: center;
             gap: 10px;
             font-size: 14px;
-            color: #e2e8f0;
+            color: var(--text-main);
         }
         .donation-perk-item span {
-            color: var(--accent-amber);
-            font-weight: 700;
+            color: var(--accent-red);
+            font-weight: 800;
         }
 
         .donation-widget {
-            background: rgba(10, 16, 30, 0.85);
+            background: var(--bg-secondary);
             border: 1px solid var(--border-glass-bright);
             border-radius: var(--radius-lg);
             padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: var(--shadow-sm);
         }
         .amount-selector {
             display: grid;
@@ -1373,47 +1443,50 @@
             margin-bottom: 20px;
         }
         .amount-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-glass);
-            color: #fff;
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            color: var(--text-heading);
             padding: 12px 0;
             border-radius: var(--radius-md);
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             text-align: center;
             transition: all 0.2s;
+            box-shadow: var(--shadow-sm);
         }
         .amount-btn:hover {
-            border-color: var(--accent-amber);
-            background: rgba(245, 158, 11, 0.1);
+            border-color: var(--accent-red);
+            background: var(--accent-red-light);
+            color: var(--accent-red);
         }
         .amount-btn.active {
-            background: var(--accent-amber);
-            color: #0f172a;
-            border-color: var(--accent-amber);
-            box-shadow: var(--shadow-glow-amber);
+            background: var(--accent-red);
+            color: #ffffff;
+            border-color: var(--accent-red);
+            box-shadow: var(--shadow-glow-red);
         }
         .custom-amount-wrap {
             margin-bottom: 22px;
         }
         .custom-amount-input {
             width: 100%;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass);
-            color: #fff;
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            color: var(--text-heading);
             padding: 12px 16px;
             border-radius: var(--radius-md);
             font-size: 15px;
+            font-weight: 600;
             outline: none;
         }
         .custom-amount-input:focus {
-            border-color: var(--accent-amber);
+            border-color: var(--accent-red);
         }
         .btn-submit-donation {
             width: 100%;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #0f172a;
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: #ffffff;
             font-weight: 800;
             font-size: 16px;
             padding: 14px;
@@ -1424,7 +1497,7 @@
             transition: all 0.25s;
         }
         .btn-submit-donation:hover {
-            filter: brightness(1.1);
+            filter: brightness(1.08);
             transform: translateY(-2px);
         }
         .donation-guarantee {
@@ -1432,15 +1505,17 @@
             color: var(--text-dim);
             text-align: center;
             margin-top: 14px;
+            font-weight: 500;
         }
 
         /* ============================================================
-           10. CORPORATE SPONSORS & PARTNERS
+           10. CORPORATE SPONSORS & PARTNERS (ON PURE WHITE)
            ============================================================ */
         .section-sponsors {
             padding: 70px 0 90px;
             position: relative;
             z-index: 2;
+            background: #ffffff;
         }
         .sponsors-grid {
             display: flex;
@@ -1450,8 +1525,8 @@
             gap: 28px;
         }
         .sponsor-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
             border-radius: var(--radius-md);
             padding: 16px 26px;
             display: flex;
@@ -1460,30 +1535,29 @@
             height: 90px;
             width: 210px;
             transition: all 0.3s;
-            backdrop-filter: blur(8px);
+            box-shadow: var(--shadow-sm);
         }
         .sponsor-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--border-glass-bright);
+            border-color: var(--accent-red);
             transform: translateY(-4px);
+            box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.1);
         }
         .sponsor-card img {
-            max-height: 52px;
+            max-height: 54px;
             max-width: 160px;
             object-fit: contain;
-            filter: grayscale(0.2) contrast(1.1);
-            transition: filter 0.3s;
+            transition: transform 0.3s;
         }
         .sponsor-card:hover img {
-            filter: grayscale(0) contrast(1.2);
+            transform: scale(1.05);
         }
 
         /* ============================================================
-           11. CORPORATE FOOTER
+           11. CORPORATE FOOTER (CLEAN LIGHT CORPORATE)
            ============================================================ */
         .site-footer {
-            background: rgba(4, 7, 15, 0.95);
-            border-top: 1px solid var(--border-glass);
+            background: var(--bg-subtle);
+            border-top: 1px solid var(--border-glass-bright);
             padding: 70px 0 30px;
             position: relative;
             z-index: 2;
@@ -1497,8 +1571,8 @@
         .footer-col h4 {
             font-family: 'Outfit', sans-serif;
             font-size: 17px;
-            font-weight: 700;
-            color: #fff;
+            font-weight: 800;
+            color: var(--text-heading);
             margin-bottom: 20px;
             letter-spacing: -0.2px;
         }
@@ -1517,10 +1591,11 @@
         .footer-links a {
             font-size: 14px;
             color: var(--text-muted);
+            font-weight: 600;
             transition: all 0.2s;
         }
         .footer-links a:hover {
-            color: #fff;
+            color: var(--accent-red);
             transform: translateX(4px);
         }
         .footer-contact-item {
@@ -1532,11 +1607,11 @@
             margin-bottom: 12px;
         }
         .footer-contact-item strong {
-            color: #fff;
+            color: var(--text-heading);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: 1px solid var(--border-glass);
             padding-top: 25px;
             display: flex;
             justify-content: space-between;
@@ -1548,12 +1623,12 @@
         }
 
         /* ============================================================
-           12. INTERACTIVE MODAL FOR TIP & REPORT
+           12. INTERACTIVE MODAL (CRISP WHITE GLASS)
            ============================================================ */
         .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(15, 23, 42, 0.6);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             z-index: 999;
@@ -1569,13 +1644,13 @@
             opacity: 1;
         }
         .modal-card {
-            background: rgba(15, 23, 42, 0.95);
+            background: #ffffff;
             border: 1px solid var(--border-glass-bright);
             border-radius: var(--radius-xl);
             max-width: 620px;
             width: 100%;
             padding: 34px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
             position: relative;
             transform: scale(0.95);
             transition: transform 0.3s ease;
@@ -1589,20 +1664,22 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--bg-subtle);
             border: none;
-            color: #fff;
-            width: 32px;
-            height: 32px;
+            color: var(--text-muted);
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s;
         }
         .modal-close-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--accent-red-light);
+            color: var(--accent-red);
         }
         .form-group {
             margin-bottom: 16px;
@@ -1611,19 +1688,20 @@
             display: block;
             font-size: 13px;
             font-weight: 700;
-            color: #e2e8f0;
+            color: var(--text-heading);
             margin-bottom: 6px;
         }
         .form-control {
             width: 100%;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border-glass);
-            color: #fff;
-            padding: 10px 14px;
+            background: #ffffff;
+            border: 1px solid var(--border-glass-bright);
+            color: var(--text-heading);
+            padding: 11px 14px;
             border-radius: var(--radius-sm);
             font-size: 14px;
             font-family: inherit;
             outline: none;
+            transition: border-color 0.2s;
         }
         .form-control:focus {
             border-color: var(--accent-red);
@@ -1667,7 +1745,7 @@
         }
         @media (max-width: 640px) {
             .hero-title {
-                font-size: 38px;
+                font-size: 36px;
             }
             .old-sectors-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1690,7 +1768,7 @@
 </head>
 <body>
 
-    <!-- Ambient Glowing Orbs -->
+    <!-- Ambient Subtle Glowing Orbs -->
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
     <div class="ambient-orb orb-3"></div>
@@ -1704,19 +1782,19 @@
                     <span>24/7 Immediate Missing Persons Crisis Desk</span>
                 </div>
                 <div class="emergency-phones">
-                    <span>CALL TOLL FREE:</span>
+                    <span>CALL DIRECT:</span>
                     <a href="tel:9102321687" class="emergency-link">📞 (910) 232-1687</a>
                     <a href="tel:9103996137" class="emergency-link">📞 (910) 399-6137</a>
                 </div>
                 <div class="emergency-actions">
-                    <a href="mailto:cuecenter@aol.com" style="color: #fff; font-size: 13px;">cuecenter@aol.com</a>
+                    <a href="mailto:cuecenter@aol.com" style="color: #ffffff; font-size: 13px; font-weight: 600;">cuecenter@aol.com</a>
                     <a href="javascript:void(0)" onclick="openModal('tip')" class="top-btn-tip">Submit Anonymous Tip</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- 2. STICKY GLASS CORPORATE HEADER -->
+    <!-- 2. STICKY CRISP WHITE CORPORATE HEADER -->
     <header class="site-header">
         <div class="container">
             <div class="nav-wrapper">
@@ -1778,7 +1856,7 @@
         </div>
     </header>
 
-    <!-- 3. HERO SECTION (FULL WIDTH CINEMATIC GLASS) -->
+    <!-- 3. HERO SECTION (LUMINOUS WHITE & CINEMATIC PHOTO FADE) -->
     <section class="hero-section" id="home">
         <div class="hero-bg-media">
             <img src="assets/hero-search-team.png" alt="CUE Volunteer Search Operation" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/03/cb4052_63450bad109d46e1b8cbb14f55d54852_mv2.png'">
@@ -1799,10 +1877,10 @@
                         “Every Missing Person Is Somebody’s Child”
                     </div>
                     <p class="hero-desc">
-                        For over three decades, Community United Effort (CUE) has provided free search and recovery teams, specialized K9 units, state outreach coordinators, and relentless advocacy for families with nowhere else to turn.
+                        For over three decades, Community United Effort (CUE) has mobilized trained search and recovery units, specialized K9 squads, state outreach coordinators, and relentless family advocacy—always free of charge.
                     </p>
 
-                    <!-- Interactive Case Search Bar -->
+                    <!-- Interactive Case Search Bar (Crisp White Glass) -->
                     <div class="hero-search-glass">
                         <span class="search-icon">🔍</span>
                         <input type="text" id="caseSearchInput" placeholder="Search missing persons by name, state, year, case #..." class="hero-search-input">
@@ -1819,24 +1897,24 @@
 
                     <!-- Quick Action Buttons -->
                     <div class="hero-quick-ctas">
-                        <a href="javascript:void(0)" onclick="openModal('report')" class="cta-pill cta-pill-glass" style="background: rgba(225,29,72,0.2); border-color: rgba(225,29,72,0.5);">
+                        <a href="javascript:void(0)" onclick="openModal('report')" class="cta-pill" style="background: var(--accent-red); color: #ffffff; box-shadow: var(--shadow-glow-red);">
                             🚨 Report a Missing Person
                         </a>
-                        <a href="javascript:void(0)" onclick="openModal('tip')" class="cta-pill cta-pill-glass">
+                        <a href="javascript:void(0)" onclick="openModal('tip')" class="cta-pill cta-pill-white">
                             🕵️ Confidential Tip Form
                         </a>
-                        <a href="#sectors" class="cta-pill cta-pill-glass">
+                        <a href="#sectors" class="cta-pill cta-pill-white">
                             🗺️ Browse Regional Sectors
                         </a>
                     </div>
                 </div>
 
-                <!-- Right Live Operations Glass Card -->
-                <div class="glass-panel hero-ops-card">
+                <!-- Right Live Operations Card -->
+                <div class="hero-ops-card">
                     <div class="ops-header">
                         <div>
                             <h3 class="ops-title">CUE National Operations Hub</h3>
-                            <p style="font-size: 13px; color: var(--text-muted);">Serving across all 50 states 24/7/365</p>
+                            <p style="font-size: 13px; color: var(--text-dim);">Coordinating across all 50 states 24/7/365</p>
                         </div>
                         <div class="ops-status-badge">
                             <span class="ops-status-dot"></span>
@@ -1863,13 +1941,13 @@
                         </div>
                     </div>
 
-                    <div style="background: rgba(255,255,255,0.04); padding: 14px; border-radius: var(--radius-md); margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.08);">
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
-                            <span style="font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase;">Active Search Mission</span>
-                            <span style="font-size: 11px; color: var(--accent-amber); font-weight: 700;">Ground & K9 Deployed</span>
+                    <div class="ops-active-banner">
+                        <div class="ops-active-banner-header">
+                            <span>Active Field Operation</span>
+                            <span>Ground & K9 Deployed</span>
                         </div>
-                        <p style="font-size: 13px; color: #cbd5e1; line-height: 1.4;">
-                            K9 Search Unit & ATV ground teams actively canvassing woods and waterways in North Carolina & Virginia sectors.
+                        <p>
+                            Certified K9 Search Units & ATV ground teams actively canvassing woods and waterways in North Carolina & Virginia sectors.
                         </p>
                     </div>
 
@@ -1894,14 +1972,14 @@
         </div>
     </section>
 
-    <!-- 4. SIGNATURE SECTORS DESIGN HUB (CLIENT'S CORE REQUEST) -->
+    <!-- 4. SIGNATURE SECTORS DESIGN HUB (PRESERVED & ELEVATED) -->
     <section class="section-sectors" id="sectors">
         <div class="container">
             <div class="section-header">
                 <span class="section-kicker">Core Architectural Structure</span>
                 <h2 class="section-title">Regional Search Sectors & Nationwide Directory</h2>
                 <p class="section-subtitle">
-                    Preserving CUE Center’s foundational sector organization in an upgraded, high-speed WordPress experience. Browse active missing person registries, report regional sightings, or connect with your State Outreach Coordinator.
+                    Preserving CUE Center’s signature sector organization in a clean, high-speed WordPress experience. Browse active missing person registries, report regional sightings, or connect with your State Outreach Coordinator.
                 </p>
             </div>
 
@@ -1930,8 +2008,8 @@
                 </button>
             </div>
 
-            <!-- Dynamic Sector Main Display (Glass Panel) -->
-            <div class="glass-panel sector-main-display" id="sectorDisplayPanel">
+            <!-- Dynamic Sector Main Display (Luminous White Card) -->
+            <div class="sector-main-display" id="sectorDisplayPanel">
                 <div class="sector-media-wrap">
                     <img id="sectorMapImage" src="assets/sector-south-map.png" alt="South Sector Map" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/07/South1.png'">
                     <span class="sector-media-badge" id="sectorBadgeLabel">Active Coverage Region</span>
@@ -1967,22 +2045,22 @@
                     </div>
 
                     <div class="sector-cta-row">
-                        <a href="javascript:void(0)" onclick="openModal('tip')" class="cta-pill cta-pill-glass" style="background: var(--accent-red); color: #fff; font-weight: 700;">
+                        <a href="javascript:void(0)" onclick="openModal('tip')" class="cta-pill" style="background: var(--accent-red); color: #ffffff; font-weight: 700; box-shadow: var(--shadow-glow-red);">
                             Submit Tip for this Sector
                         </a>
-                        <a href="#cases" class="cta-pill cta-pill-glass">
+                        <a href="#cases" class="cta-pill cta-pill-white">
                             View Active Sector Cases (248)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- 5. OLD HOMEPAGE SECTOR BADGES REIMAGINED -->
+            <!-- 5. OLD HOMEPAGE SECTOR BADGES REIMAGINED (WHITE CARDS) -->
             <div class="old-sectors-reimagined" id="programs">
                 <div class="reimagined-title-bar">
                     <div>
                         <h3>CUE Signature Programs & Operational Sectors</h3>
-                        <p style="font-size: 14px; color: var(--text-muted);">From the classic homepage structure, reimagined with modern corporate glassmorphism cards</p>
+                        <p style="font-size: 14px; color: var(--text-dim);">From the classic homepage structure, reimagined with modern clean cards</p>
                     </div>
                     <span class="reimagined-note">★ Preserved From Original Site</span>
                 </div>
@@ -2046,7 +2124,7 @@
         </div>
     </section>
 
-    <!-- 6. PROFESSIONAL SERVICES (GLASSMORPHISM CORPORATE GRID) -->
+    <!-- 6. PROFESSIONAL SERVICES (CLEAN WHITE CARDS) -->
     <section class="section-services" id="services">
         <div class="container">
             <div class="section-header">
@@ -2059,9 +2137,9 @@
 
             <div class="services-grid">
                 <!-- Service 1: Search Resources -->
-                <div class="glass-panel service-card">
+                <div class="service-card">
                     <div>
-                        <div class="service-icon-wrap">
+                        <div class="service-icon-wrap" style="background: #f0fdf4; border-color: #bbf7d0;">
                             <img src="assets/svc-search.png" alt="Search Resources" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_dec7e034cf74477f9b63a3db513de11a_mv2-1.png'">
                         </div>
                         <h3 class="service-title">Search & Recovery</h3>
@@ -2076,9 +2154,9 @@
                 </div>
 
                 <!-- Service 2: Family Support -->
-                <div class="glass-panel service-card">
+                <div class="service-card">
                     <div>
-                        <div class="service-icon-wrap">
+                        <div class="service-icon-wrap" style="background: #fef2f2; border-color: #fecaca;">
                             <img src="assets/svc-family.png" alt="Family Support" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_57df1be368ff4feaa53fa42452b74360_mv2.png'">
                         </div>
                         <h3 class="service-title">Family Advocacy</h3>
@@ -2093,9 +2171,9 @@
                 </div>
 
                 <!-- Service 3: Casework Awareness -->
-                <div class="glass-panel service-card">
+                <div class="service-card">
                     <div>
-                        <div class="service-icon-wrap">
+                        <div class="service-icon-wrap" style="background: #f0f9ff; border-color: #bae6fd;">
                             <img src="assets/svc-awareness.png" alt="Casework Awareness" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_c591b67648bb48e78af0204dfb236170_mv2-1-1.png'">
                         </div>
                         <h3 class="service-title">Casework & Media</h3>
@@ -2110,9 +2188,9 @@
                 </div>
 
                 <!-- Service 4: Community Service -->
-                <div class="glass-panel service-card">
+                <div class="service-card">
                     <div>
-                        <div class="service-icon-wrap">
+                        <div class="service-icon-wrap" style="background: #fffbeb; border-color: #fde68a;">
                             <img src="assets/svc-community.png" alt="Community Service" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_a350469125d04eb48d0bfe56492aac94_mv2.png'">
                         </div>
                         <h3 class="service-title">Community Training</h3>
@@ -2141,7 +2219,7 @@
                         <img src="assets/volunteer-team.jpg" alt="Dedicated Volunteer Searchers" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/v7.jpg'">
                     </div>
                     <div class="cap-badge-live">
-                        <span class="pulse-dot" style="background:#34d399;"></span>
+                        <span class="pulse-dot" style="background: var(--accent-emerald);"></span>
                         <span>Certified Scent & Cadaver K9 Unit</span>
                     </div>
                 </div>
@@ -2183,7 +2261,7 @@
         </div>
     </section>
 
-    <!-- 8. ACTIVE CASES REGISTRY PREVIEW -->
+    <!-- 8. ACTIVE CASES REGISTRY PREVIEW (WHITE CARDS) -->
     <section class="section-cases" id="cases">
         <div class="container">
             <div class="section-header">
@@ -2196,7 +2274,7 @@
 
             <div class="cases-grid" id="casesGridContainer">
                 <!-- Case 1 -->
-                <div class="glass-panel case-card" data-sector="south" data-state="North Carolina">
+                <div class="case-card" data-sector="south" data-state="North Carolina">
                     <div class="case-thumb-wrap">
                         <img src="assets/missing-persons-collage.png" alt="Missing Person Case" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/03/missingpersons.png'">
                         <span class="case-tag-status">Active Search</span>
@@ -2220,7 +2298,7 @@
                 </div>
 
                 <!-- Case 2 -->
-                <div class="glass-panel case-card" data-sector="south" data-state="Florida">
+                <div class="case-card" data-sector="south" data-state="Florida">
                     <div class="case-thumb-wrap">
                         <img src="assets/hero-search-team.png" alt="Missing Person Case" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/03/cb4052_63450bad109d46e1b8cbb14f55d54852_mv2.png'">
                         <span class="case-tag-status">Endangered</span>
@@ -2244,10 +2322,10 @@
                 </div>
 
                 <!-- Case 3 -->
-                <div class="glass-panel case-card" data-sector="midwest" data-state="Ohio">
+                <div class="case-card" data-sector="midwest" data-state="Ohio">
                     <div class="case-thumb-wrap">
                         <img src="assets/volunteer-team.jpg" alt="Missing Person Case" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/v7.jpg'">
-                        <span class="case-tag-status">Cold Case Review</span>
+                        <span class="case-tag-status" style="background: var(--accent-amber);">Cold Case Review</span>
                         <span class="case-tag-sector">Midwest Sector</span>
                     </div>
                     <div class="case-body">
@@ -2270,12 +2348,12 @@
         </div>
     </section>
 
-    <!-- 9. DONATION & GIVING TUESDAY MISSION FUEL -->
+    <!-- 9. DONATION & MISSION IMPACT (CRISP WHITE PANEL) -->
     <section class="section-donation" id="donate">
         <div class="container">
-            <div class="glass-panel donation-panel">
+            <div class="donation-panel">
                 <div class="donation-copy">
-                    <span class="section-kicker" style="color: var(--accent-amber);">Fuel The Search Effort</span>
+                    <span class="section-kicker" style="color: var(--accent-red);">Fuel The Search Effort</span>
                     <h3>Your Support Keeps Search Teams in the Field</h3>
                     <p>
                         Because of supporters like you, CUE Center never charges a family in crisis. Your tax-deductible gift directly funds fuel for search convoys, scent equipment for K9 units, billboard campaigns, and emergency family advocacy.
@@ -2298,7 +2376,7 @@
                 </div>
 
                 <div class="donation-widget">
-                    <div style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 14px; text-transform: uppercase;">
+                    <div style="font-size: 14px; font-weight: 800; color: var(--text-heading); margin-bottom: 14px; text-transform: uppercase;">
                         Select Donation Amount
                     </div>
 
@@ -2327,11 +2405,11 @@
         </div>
     </section>
 
-    <!-- 10. CORPORATE SPONSORS & PARTNERS -->
+    <!-- 10. CORPORATE SPONSORS & PARTNERS (ON PURE WHITE) -->
     <section class="section-sponsors">
         <div class="container">
             <div style="text-align: center; margin-bottom: 30px;">
-                <span style="font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">
+                <span style="font-size: 13px; font-weight: 800; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.2px;">
                     A Special Thank You to Our Generous Sponsors & Partners
                 </span>
             </div>
@@ -2363,13 +2441,13 @@
                 <!-- Col 1: About -->
                 <div class="footer-col footer-about">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-                        <img src="assets/cue-logo-new.jpg" alt="CUE Center" style="height: 44px; border-radius: 6px; background:#fff; padding:3px;" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2020/04/cue-logo-new.jpg'">
-                        <span style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:800; color:#fff;">CUE CENTER</span>
+                        <img src="assets/cue-logo-new.jpg" alt="CUE Center" style="height: 44px; border-radius: 6px; background:#fff; padding:3px; border:1px solid #e2e8f0;" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2020/04/cue-logo-new.jpg'">
+                        <span style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:800; color:var(--text-heading);">CUE CENTER</span>
                     </div>
                     <p>
                         Community United Effort (CUE) Center for Missing Persons is a 501(c)(3) tax-exempt non-profit organization founded in Wilmington, North Carolina, serving missing persons nationwide.
                     </p>
-                    <p style="font-size: 13px; color: var(--accent-amber); font-weight: 700;">
+                    <p style="font-size: 13px; color: var(--accent-red); font-weight: 800;">
                         Every Missing Person Is Somebody’s Child.
                     </p>
                 </div>
@@ -2409,21 +2487,21 @@
                         <span>🚨</span>
                         <div>
                             <strong>24-Hour Emergency Line:</strong><br>
-                            <a href="tel:9102321687" style="color: #fca5a5; font-weight: 700;">(910) 232-1687</a>
+                            <a href="tel:9102321687" style="color: var(--accent-red); font-weight: 800;">(910) 232-1687</a>
                         </div>
                     </div>
                     <div class="footer-contact-item">
                         <span>📞</span>
                         <div>
                             <strong>Secondary Operations:</strong><br>
-                            <a href="tel:9103996137">(910) 399-6137</a>
+                            <a href="tel:9103996137" style="font-weight: 600;">(910) 399-6137</a>
                         </div>
                     </div>
                     <div class="footer-contact-item">
                         <span>✉️</span>
                         <div>
                             <strong>Direct Inquiries:</strong><br>
-                            <a href="mailto:cuecenter@aol.com">cuecenter@aol.com</a>
+                            <a href="mailto:cuecenter@aol.com" style="color: var(--accent-red); font-weight: 600;">cuecenter@aol.com</a>
                         </div>
                     </div>
                     <div class="footer-contact-item">
@@ -2441,7 +2519,7 @@
                     © 2026 Community United Effort (CUE) Center for Missing Persons. All Rights Reserved.
                 </div>
                 <div>
-                    Modernized Corporate WordPress Concept · Designed with Glassmorphism & High-Speed Gutenberg Architecture
+                    Modernized Corporate WordPress Concept · White Luminous Glassmorphism Architecture
                 </div>
             </div>
         </div>
@@ -2453,7 +2531,7 @@
             <button class="modal-close-btn" onclick="closeModal()">✕</button>
             <div id="modalTipContent">
                 <span class="section-kicker" style="color: var(--accent-red);">Confidential Dispatch</span>
-                <h3 style="font-family:'Outfit', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px;">
+                <h3 style="font-family:'Outfit', sans-serif; font-size: 24px; color: var(--text-heading); margin-bottom: 8px;">
                     Submit a Confidential Tip
                 </h3>
                 <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
@@ -2485,7 +2563,7 @@
 
             <div id="modalReportContent" style="display: none;">
                 <span class="section-kicker" style="color: var(--accent-red);">Intake Assessment</span>
-                <h3 style="font-family:'Outfit', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px;">
+                <h3 style="font-family:'Outfit', sans-serif; font-size: 24px; color: var(--text-heading); margin-bottom: 8px;">
                     File a Missing Person Case Report
                 </h3>
                 <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
@@ -2513,7 +2591,7 @@
                         <label class="form-label">Case Background & Circumstances</label>
                         <textarea placeholder="Medical conditions, vehicle info, possible destinations..." class="form-control"></textarea>
                     </div>
-                    <button type="submit" class="btn-glass-report" style="width: 100%; justify-content: center; margin-top: 10px; background: var(--accent-red); color: #fff;">
+                    <button type="submit" class="btn-glass-report" style="width: 100%; justify-content: center; margin-top: 10px; background: var(--accent-red); color: #ffffff;">
                         Submit Case for Immediate Deployment Review
                     </button>
                 </form>
@@ -2627,15 +2705,15 @@
 
         // Filter cases by state
         function filterState(stateName) {
-            alert(`Filtering cases for state: ${stateName}. In the full WordPress site, this instantly queries the custom 'Missing Persons' post type by state taxonomy!`);
+            alert(`Filtering cases for state: ${stateName}. In the full WordPress site, this queries the custom 'Missing Persons' post type by state taxonomy!`);
             const cards = document.querySelectorAll('.case-card');
             cards.forEach(card => {
                 const cardState = card.getAttribute('data-state');
                 if (cardState && cardState.toLowerCase() === stateName.toLowerCase()) {
                     card.style.display = 'flex';
-                    card.style.border = '2px solid var(--accent-amber)';
+                    card.style.borderColor = 'var(--accent-red)';
                 } else {
-                    card.style.border = '1px solid var(--border-glass)';
+                    card.style.borderColor = 'var(--border-glass-bright)';
                 }
             });
             window.location.hash = '#cases';
