@@ -1,0 +1,2721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUE Center for Missing Persons | Community United Effort | Modern WordPress Concept</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/cue-icon.jpg" type="image/jpeg">
+    <style>
+        :root {
+            --bg-primary: #070c18;
+            --bg-secondary: #0c1426;
+            --card-glass: rgba(15, 23, 42, 0.65);
+            --card-glass-hover: rgba(26, 38, 66, 0.75);
+            --card-glass-light: rgba(255, 255, 255, 0.05);
+            --border-glass: rgba(255, 255, 255, 0.12);
+            --border-glass-bright: rgba(255, 255, 255, 0.28);
+            --accent-red: #e11d48;
+            --accent-red-hover: #f43f5e;
+            --accent-amber: #f59e0b;
+            --accent-amber-glow: rgba(245, 158, 11, 0.25);
+            --accent-cyan: #0ea5e9;
+            --accent-blue: #2563eb;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --shadow-glass: 0 20px 40px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            --shadow-glow-red: 0 0 35px -5px rgba(225, 29, 72, 0.35);
+            --shadow-glow-amber: 0 0 35px -5px rgba(245, 158, 11, 0.3);
+            --backdrop-blur: blur(18px);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(225, 29, 72, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 25%, rgba(14, 165, 233, 0.09) 0%, transparent 45%),
+                radial-gradient(circle at 50% 70%, rgba(245, 158, 11, 0.06) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Ambient glowing background shapes */
+        .ambient-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(90px);
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.55;
+            transition: all 0.8s ease;
+        }
+        .orb-1 {
+            width: 450px;
+            height: 450px;
+            background: rgba(225, 29, 72, 0.18);
+            top: 5%;
+            left: -100px;
+        }
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(14, 165, 233, 0.15);
+            top: 40%;
+            right: -150px;
+        }
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: rgba(245, 158, 11, 0.12);
+            bottom: 10%;
+            left: 20%;
+        }
+
+        /* Glass Surface Utility */
+        .glass-panel {
+            background: var(--card-glass);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-glass);
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-panel-light {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+        }
+
+        .glass-panel:hover {
+            border-color: var(--border-glass-bright);
+        }
+
+        /* ============================================================
+           1. TOP 24/7 CRISIS DISPATCH BAR
+           ============================================================ */
+        .top-emergency-bar {
+            background: rgba(225, 29, 72, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #fff;
+            padding: 9px 0;
+            font-size: 13.5px;
+            font-weight: 600;
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .top-emergency-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .emergency-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .pulse-dot {
+            width: 9px;
+            height: 9px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            animation: pulse-ring 1.6s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+        .emergency-phones {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .emergency-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 3px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .emergency-link:hover {
+            background: rgba(0, 0, 0, 0.4);
+            transform: scale(1.03);
+        }
+        .emergency-actions {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .top-btn-tip {
+            background: #fff;
+            color: var(--accent-red);
+            font-weight: 700;
+            padding: 3px 14px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.2s;
+        }
+        .top-btn-tip:hover {
+            background: #ffe4e6;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* ============================================================
+           2. MAIN NAVIGATION (GLASSMORPHISM CORPORATE)
+           ============================================================ */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            background: rgba(7, 12, 24, 0.75);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border-bottom: 1px solid var(--border-glass);
+            transition: all 0.3s ease;
+        }
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 0;
+            gap: 20px;
+        }
+        .brand-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+        }
+        .brand-logo-img {
+            height: 54px;
+            width: auto;
+            border-radius: var(--radius-sm);
+            background: #fff;
+            padding: 4px 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .brand-text-block {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .brand-title span {
+            color: var(--accent-amber);
+        }
+        .brand-subtitle {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        .main-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 6px;
+        }
+        .menu-link {
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .menu-link:hover, .menu-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.07);
+        }
+        .menu-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+            background: var(--accent-red);
+            color: #fff;
+            border-radius: 999px;
+            font-weight: 700;
+        }
+
+        /* Sector Dropdown Menu */
+        .has-dropdown {
+            position: relative;
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 290px;
+            background: rgba(13, 20, 36, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 10px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.25s ease;
+            z-index: 99;
+        }
+        .has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(4px);
+        }
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .dropdown-item:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(4px);
+        }
+        .dropdown-item .icon {
+            font-size: 16px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .btn-glass-report {
+            background: rgba(225, 29, 72, 0.15);
+            border: 1px solid rgba(225, 29, 72, 0.45);
+            color: #fecdd3;
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 9px 18px;
+            border-radius: var(--radius-md);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s;
+        }
+        .btn-glass-report:hover {
+            background: var(--accent-red);
+            color: #fff;
+            box-shadow: var(--shadow-glow-red);
+            transform: translateY(-2px);
+        }
+        .btn-glass-donate {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 13.5px;
+            padding: 9px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-glow-amber);
+            transition: all 0.25s;
+        }
+        .btn-glass-donate:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        /* ============================================================
+           3. HERO SECTION (FULL WIDTH CINEMATIC)
+           ============================================================ */
+        .hero-section {
+            position: relative;
+            padding: 80px 0 100px;
+            overflow: hidden;
+        }
+        .hero-bg-media {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .hero-bg-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.28) contrast(1.15) saturate(1.1);
+            transform: scale(1.04);
+            animation: slow-pan 30s infinite alternate ease-in-out;
+        }
+        @keyframes slow-pan {
+            0% { transform: scale(1.02) translate(0, 0); }
+            100% { transform: scale(1.08) translate(-15px, -10px); }
+        }
+        .hero-overlay-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, 
+                rgba(7, 12, 24, 0.82) 0%, 
+                rgba(7, 12, 24, 0.6) 40%, 
+                rgba(7, 12, 24, 0.95) 100%);
+        }
+
+        .hero-grid {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1.25fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--accent-amber);
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+        }
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 54px;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, #ffffff 30%, #fecdd3 70%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+        .hero-motto {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fca5a5;
+            margin-bottom: 16px;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .hero-motto::before {
+            content: "";
+            display: inline-block;
+            width: 32px;
+            height: 2px;
+            background: var(--accent-red);
+        }
+        .hero-desc {
+            font-size: 16.5px;
+            color: #cbd5e1;
+            margin-bottom: 34px;
+            max-width: 620px;
+            line-height: 1.7;
+        }
+
+        /* Hero Search Bar (Modern Glass Input) */
+        .hero-search-glass {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 8px 8px 8px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.15);
+            margin-bottom: 28px;
+            max-width: 650px;
+        }
+        .hero-search-glass .search-icon {
+            font-size: 20px;
+            color: var(--accent-amber);
+        }
+        .hero-search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 15px;
+            font-family: inherit;
+        }
+        .hero-search-input::placeholder {
+            color: #64748b;
+        }
+        .hero-sector-select {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+        }
+        .hero-sector-select option {
+            background: #0f172a;
+            color: #fff;
+        }
+        .hero-search-btn {
+            background: var(--accent-red);
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: var(--shadow-glow-red);
+        }
+        .hero-search-btn:hover {
+            background: var(--accent-red-hover);
+            transform: scale(1.02);
+        }
+
+        .hero-quick-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: center;
+        }
+        .cta-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            font-size: 13.5px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s;
+        }
+        .cta-pill-glass {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass);
+            color: var(--text-main);
+        }
+        .cta-pill-glass:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--border-glass-bright);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Right Card (Live Operations Radar) */
+        .hero-ops-card {
+            padding: 30px;
+            border-radius: var(--radius-xl);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-ops-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(225, 29, 72, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .ops-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 16px;
+        }
+        .ops-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .ops-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #34d399;
+            font-size: 11.5px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+        .ops-status-dot {
+            width: 7px;
+            height: 7px;
+            background: #34d399;
+            border-radius: 50%;
+            animation: pulse-ring 1.8s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+
+        .ops-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .ops-stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px;
+            border-radius: var(--radius-md);
+            text-align: left;
+            transition: all 0.2s;
+        }
+        .ops-stat-box:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .ops-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-amber);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .ops-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .ops-trust-seals {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .trust-seal-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .trust-seal-item img {
+            height: 48px;
+            width: auto;
+            border-radius: var(--radius-sm);
+        }
+        .trust-seal-text {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+        .trust-seal-text strong {
+            color: #fff;
+            display: block;
+        }
+
+        /* ============================================================
+           4. SIGNATURE SECTOR DESIGN HUB (CLIENT'S PRIMARY REQUIREMENT)
+           ============================================================ */
+        .section-sectors {
+            padding: 100px 0 90px;
+            position: relative;
+            z-index: 2;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 820px;
+            margin: 0 auto 50px;
+        }
+        .section-kicker {
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-red);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            color: #fff;
+        }
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Sector Navigation Tabs */
+        .sector-tabs-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 36px;
+        }
+        .sector-tab-btn {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            padding: 10px 22px;
+            border-radius: 999px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sector-tab-btn:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--border-glass-bright);
+        }
+        .sector-tab-btn.active {
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.9) 0%, rgba(190, 18, 60, 0.9) 100%);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow-glow-red);
+        }
+        .sector-tab-btn .tab-count {
+            background: rgba(0, 0, 0, 0.25);
+            font-size: 11.5px;
+            padding: 2px 7px;
+            border-radius: 999px;
+        }
+
+        /* Sector Showcase Card */
+        .sector-main-display {
+            display: grid;
+            grid-template-columns: 1fr 1.15fr;
+            gap: 36px;
+            padding: 36px;
+            border-radius: var(--radius-xl);
+            align-items: center;
+            margin-bottom: 60px;
+        }
+        .sector-media-wrap {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+        .sector-media-wrap img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        .sector-media-wrap:hover img {
+            transform: scale(1.03);
+        }
+        .sector-media-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-amber);
+            text-transform: uppercase;
+        }
+
+        .sector-details-content {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .sector-active-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-red);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+        .sector-heading {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #fff;
+        }
+        .sector-summary {
+            font-size: 15px;
+            color: #cbd5e1;
+            line-height: 1.65;
+        }
+
+        /* State directory tag pills */
+        .states-grid-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-top: 8px;
+        }
+        .states-tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .state-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 12.5px;
+            font-weight: 600;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .state-chip:hover {
+            background: var(--accent-amber);
+            color: #0f172a;
+            border-color: var(--accent-amber);
+            transform: translateY(-2px);
+        }
+        .sector-cta-row {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+           5. OLD HOMEPAGE SECTOR BADGES REIMAGINED (GLASS CARDS)
+           ============================================================ */
+        .old-sectors-reimagined {
+            margin-top: 20px;
+        }
+        .reimagined-title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 16px;
+        }
+        .reimagined-title-bar h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .reimagined-note {
+            font-size: 13.5px;
+            color: var(--accent-amber);
+            font-weight: 600;
+        }
+
+        .old-sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 18px;
+        }
+        .old-sector-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: var(--backdrop-blur);
+            -webkit-backdrop-filter: var(--backdrop-blur);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 24px 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .old-sector-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .old-sector-card:hover {
+            transform: translateY(-6px);
+            background: rgba(26, 38, 66, 0.75);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15);
+        }
+        .old-sector-thumb {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            padding: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        }
+        .old-sector-card:hover .old-sector-thumb {
+            border-color: var(--accent-amber);
+            transform: scale(1.08);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+        }
+        .old-sector-thumb img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        .old-sector-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 6px;
+        }
+        .old-sector-desc {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ============================================================
+           6. CORE PROFESSIONAL SERVICES
+           ============================================================ */
+        .section-services {
+            padding: 90px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .service-card {
+            padding: 30px 24px;
+            border-radius: var(--radius-xl);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-glass-bright);
+            box-shadow: 0 25px 45px -10px rgba(0,0,0,0.6);
+        }
+        .service-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            padding: 10px;
+        }
+        .service-icon-wrap img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .service-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .service-points {
+            list-style: none;
+            margin-bottom: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .service-points li {
+            font-size: 13.5px;
+            color: #cbd5e1;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.45;
+        }
+        .service-points li::before {
+            content: "✓";
+            color: var(--accent-amber);
+            font-weight: 800;
+        }
+        .service-link {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+        }
+        .service-link:hover {
+            color: #38bdf8;
+            transform: translateX(4px);
+        }
+
+        /* ============================================================
+           7. FIELD CAPABILITIES & SEARCH IN ACTION
+           ============================================================ */
+        .section-capabilities {
+            padding: 90px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .capabilities-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .capabilities-image-stack {
+            position: relative;
+        }
+        .cap-img-main {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+        }
+        .cap-img-main img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+        .cap-img-floating {
+            position: absolute;
+            bottom: -30px;
+            right: -25px;
+            width: 250px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 2px solid var(--border-glass-bright);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            background: #0f172a;
+        }
+        .cap-img-floating img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .cap-badge-live {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-glass);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #34d399;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .capabilities-text {
+            padding-left: 20px;
+        }
+        .cap-feature-list {
+            margin-top: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .cap-feature-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .cap-feat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--accent-amber);
+            flex-shrink: 0;
+        }
+        .cap-feat-info h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .cap-feat-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+           8. ACTIVE MISSING PERSON CASES (FEED PREVIEW)
+           ============================================================ */
+        .section-cases {
+            padding: 90px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .case-card {
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .case-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-glass-bright);
+            box-shadow: 0 25px 50px -10px rgba(0,0,0,0.7);
+        }
+        .case-thumb-wrap {
+            position: relative;
+            height: 240px;
+            background: #0f172a;
+            overflow: hidden;
+        }
+        .case-thumb-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .case-card:hover .case-thumb-wrap img {
+            transform: scale(1.05);
+        }
+        .case-tag-status {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(225, 29, 72, 0.9);
+            color: #fff;
+            font-size: 11.5px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 999px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .case-tag-sector {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            color: var(--accent-amber);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--border-glass);
+            text-transform: uppercase;
+        }
+        .case-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .case-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .case-meta {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .case-meta span {
+            color: #cbd5e1;
+        }
+        .case-desc {
+            font-size: 13.5px;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .case-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+        .btn-tip-case {
+            flex: 1;
+            background: rgba(225, 29, 72, 0.18);
+            border: 1px solid rgba(225, 29, 72, 0.4);
+            color: #fecdd3;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-tip-case:hover {
+            background: var(--accent-red);
+            color: #fff;
+        }
+        .btn-share-case {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-glass);
+            color: #e2e8f0;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-share-case:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ============================================================
+           9. GLASS DONATION & MISSION IMPACT
+           ============================================================ */
+        .section-donation {
+            padding: 90px 0;
+            position: relative;
+            z-index: 2;
+        }
+        .donation-panel {
+            padding: 50px 60px;
+            border-radius: var(--radius-xl);
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .donation-panel::before {
+            content: "";
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .donation-copy h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .donation-copy p {
+            font-size: 16px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .donation-perks {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .donation-perk-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+        .donation-perk-item span {
+            color: var(--accent-amber);
+            font-weight: 700;
+        }
+
+        .donation-widget {
+            background: rgba(10, 16, 30, 0.85);
+            border: 1px solid var(--border-glass-bright);
+            border-radius: var(--radius-lg);
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+        .amount-selector {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .amount-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            padding: 12px 0;
+            border-radius: var(--radius-md);
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .amount-btn:hover {
+            border-color: var(--accent-amber);
+            background: rgba(245, 158, 11, 0.1);
+        }
+        .amount-btn.active {
+            background: var(--accent-amber);
+            color: #0f172a;
+            border-color: var(--accent-amber);
+            box-shadow: var(--shadow-glow-amber);
+        }
+        .custom-amount-wrap {
+            margin-bottom: 22px;
+        }
+        .custom-amount-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            font-size: 15px;
+            outline: none;
+        }
+        .custom-amount-input:focus {
+            border-color: var(--accent-amber);
+        }
+        .btn-submit-donation {
+            width: 100%;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 16px;
+            padding: 14px;
+            border: none;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            box-shadow: var(--shadow-glow-amber);
+            transition: all 0.25s;
+        }
+        .btn-submit-donation:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+        .donation-guarantee {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        /* ============================================================
+           10. CORPORATE SPONSORS & PARTNERS
+           ============================================================ */
+        .section-sponsors {
+            padding: 70px 0 90px;
+            position: relative;
+            z-index: 2;
+        }
+        .sponsors-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 28px;
+        }
+        .sponsor-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--radius-md);
+            padding: 16px 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90px;
+            width: 210px;
+            transition: all 0.3s;
+            backdrop-filter: blur(8px);
+        }
+        .sponsor-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--border-glass-bright);
+            transform: translateY(-4px);
+        }
+        .sponsor-card img {
+            max-height: 52px;
+            max-width: 160px;
+            object-fit: contain;
+            filter: grayscale(0.2) contrast(1.1);
+            transition: filter 0.3s;
+        }
+        .sponsor-card:hover img {
+            filter: grayscale(0) contrast(1.2);
+        }
+
+        /* ============================================================
+           11. CORPORATE FOOTER
+           ============================================================ */
+        .site-footer {
+            background: rgba(4, 7, 15, 0.95);
+            border-top: 1px solid var(--border-glass);
+            padding: 70px 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .footer-col h4 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            letter-spacing: -0.2px;
+        }
+        .footer-about p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+            transform: translateX(4px);
+        }
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        .footer-contact-item strong {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-dim);
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        /* ============================================================
+           12. INTERACTIVE MODAL FOR TIP & REPORT
+           ============================================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-card {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid var(--border-glass-bright);
+            border-radius: var(--radius-xl);
+            max-width: 620px;
+            width: 100%;
+            padding: 34px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-overlay.active .modal-card {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-bottom: 6px;
+        }
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-glass);
+            color: #fff;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+        }
+        .form-control:focus {
+            border-color: var(--accent-red);
+        }
+        textarea.form-control {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .old-sectors-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            .sector-main-display {
+                grid-template-columns: 1fr;
+            }
+            .capabilities-split {
+                grid-template-columns: 1fr;
+            }
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .donation-panel {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-menu {
+                display: none;
+            }
+        }
+        @media (max-width: 640px) {
+            .hero-title {
+                font-size: 38px;
+            }
+            .old-sectors-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .cases-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-search-glass {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glowing Orbs -->
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+
+    <!-- 1. TOP EMERGENCY 24/7 HOTLINE BAR -->
+    <div class="top-emergency-bar">
+        <div class="container">
+            <div class="top-emergency-inner">
+                <div class="emergency-pill">
+                    <span class="pulse-dot"></span>
+                    <span>24/7 Immediate Missing Persons Crisis Desk</span>
+                </div>
+                <div class="emergency-phones">
+                    <span>CALL TOLL FREE:</span>
+                    <a href="tel:9102321687" class="emergency-link">📞 (910) 232-1687</a>
+                    <a href="tel:9103996137" class="emergency-link">📞 (910) 399-6137</a>
+                </div>
+                <div class="emergency-actions">
+                    <a href="mailto:cuecenter@aol.com" style="color: #fff; font-size: 13px;">cuecenter@aol.com</a>
+                    <a href="javascript:void(0)" onclick="openModal('tip')" class="top-btn-tip">Submit Anonymous Tip</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. STICKY GLASS CORPORATE HEADER -->
+    <header class="site-header">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#home" class="brand-logo-wrap">
+                    <img src="assets/cue-logo-new.jpg" alt="CUE Center for Missing Persons" class="brand-logo-img" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2020/04/cue-logo-new.jpg'">
+                    <div class="brand-text-block">
+                        <span class="brand-title">CUE <span>CENTER</span></span>
+                        <span class="brand-subtitle">Community United Effort · Since 1994</span>
+                    </div>
+                </a>
+
+                <ul class="main-menu">
+                    <li><a href="#home" class="menu-link active">Home</a></li>
+                    <li><a href="#about" class="menu-link">About Us</a></li>
+                    <li class="has-dropdown">
+                        <a href="#sectors" class="menu-link">
+                            Regional Sectors ▾
+                            <span class="menu-badge">7 Sectors</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#sectors" onclick="switchSector('south')" class="dropdown-item">
+                                <span class="icon">📍</span> South Sector (NC, SC, FL, GA...)
+                            </a>
+                            <a href="#sectors" onclick="switchSector('west')" class="dropdown-item">
+                                <span class="icon">🌲</span> West Coast Sector (CA, WA, OR...)
+                            </a>
+                            <a href="#sectors" onclick="switchSector('midwest')" class="dropdown-item">
+                                <span class="icon">🌾</span> Midwest Sector (IL, OH, MI...)
+                            </a>
+                            <a href="#sectors" onclick="switchSector('northeast')" class="dropdown-item">
+                                <span class="icon">🏙️</span> Northeast Sector (NY, PA, NJ...)
+                            </a>
+                            <a href="#sectors" onclick="switchSector('international')" class="dropdown-item">
+                                <span class="icon">🌐</span> International Cases
+                            </a>
+                            <a href="#sectors" onclick="switchSector('unidentified')" class="dropdown-item">
+                                <span class="icon">🔍</span> Unidentified Persons
+                            </a>
+                            <a href="#sectors" onclick="switchSector('homicides')" class="dropdown-item">
+                                <span class="icon">⚖️</span> Unsolved Homicides
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="#programs" class="menu-link">Signature Programs</a></li>
+                    <li><a href="#services" class="menu-link">Services</a></li>
+                    <li><a href="#cases" class="menu-link">Active Cases</a></li>
+                    <li><a href="#volunteer" class="menu-link">Volunteer</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <a href="javascript:void(0)" onclick="openModal('report')" class="btn-glass-report">
+                        <span>🚨 File Report</span>
+                    </a>
+                    <a href="#donate" class="btn-glass-donate">
+                        <span>❤ Donate</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 3. HERO SECTION (FULL WIDTH CINEMATIC GLASS) -->
+    <section class="hero-section" id="home">
+        <div class="hero-bg-media">
+            <img src="assets/hero-search-team.png" alt="CUE Volunteer Search Operation" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/03/cb4052_63450bad109d46e1b8cbb14f55d54852_mv2.png'">
+            <div class="hero-overlay-gradient"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <span>★ 501(c)(3) Non-Profit Organization · Wilmington, NC</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Serving Missing Persons Nationwide.
+                        <span class="gradient-text">Bringing Answers Home.</span>
+                    </h1>
+                    <div class="hero-motto">
+                        “Every Missing Person Is Somebody’s Child”
+                    </div>
+                    <p class="hero-desc">
+                        For over three decades, Community United Effort (CUE) has provided free search and recovery teams, specialized K9 units, state outreach coordinators, and relentless advocacy for families with nowhere else to turn.
+                    </p>
+
+                    <!-- Interactive Case Search Bar -->
+                    <div class="hero-search-glass">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="caseSearchInput" placeholder="Search missing persons by name, state, year, case #..." class="hero-search-input">
+                        <select class="hero-sector-select" id="sectorFilterSelect" onchange="filterCasesBySector(this.value)">
+                            <option value="all">All Sectors</option>
+                            <option value="south">South Sector</option>
+                            <option value="west">West Coast Sector</option>
+                            <option value="midwest">Midwest Sector</option>
+                            <option value="northeast">Northeast Sector</option>
+                            <option value="unidentified">Unidentified</option>
+                        </select>
+                        <button class="hero-search-btn" onclick="executeSearch()">Search</button>
+                    </div>
+
+                    <!-- Quick Action Buttons -->
+                    <div class="hero-quick-ctas">
+                        <a href="javascript:void(0)" onclick="openModal('report')" class="cta-pill cta-pill-glass" style="background: rgba(225,29,72,0.2); border-color: rgba(225,29,72,0.5);">
+                            🚨 Report a Missing Person
+                        </a>
+                        <a href="javascript:void(0)" onclick="openModal('tip')" class="cta-pill cta-pill-glass">
+                            🕵️ Confidential Tip Form
+                        </a>
+                        <a href="#sectors" class="cta-pill cta-pill-glass">
+                            🗺️ Browse Regional Sectors
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Live Operations Glass Card -->
+                <div class="glass-panel hero-ops-card">
+                    <div class="ops-header">
+                        <div>
+                            <h3 class="ops-title">CUE National Operations Hub</h3>
+                            <p style="font-size: 13px; color: var(--text-muted);">Serving across all 50 states 24/7/365</p>
+                        </div>
+                        <div class="ops-status-badge">
+                            <span class="ops-status-dot"></span>
+                            <span>Live Response</span>
+                        </div>
+                    </div>
+
+                    <div class="ops-stats-grid">
+                        <div class="ops-stat-box">
+                            <div class="ops-num">14,200+</div>
+                            <div class="ops-label">Cases Assisted</div>
+                        </div>
+                        <div class="ops-stat-box">
+                            <div class="ops-num">50</div>
+                            <div class="ops-label">States Covered</div>
+                        </div>
+                        <div class="ops-stat-box">
+                            <div class="ops-num">100%</div>
+                            <div class="ops-label">Free to Families</div>
+                        </div>
+                        <div class="ops-stat-box">
+                            <div class="ops-num">30+</div>
+                            <div class="ops-label">Years of Service</div>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.04); padding: 14px; border-radius: var(--radius-md); margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.08);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                            <span style="font-size: 12px; font-weight: 700; color: #fff; text-transform: uppercase;">Active Search Mission</span>
+                            <span style="font-size: 11px; color: var(--accent-amber); font-weight: 700;">Ground & K9 Deployed</span>
+                        </div>
+                        <p style="font-size: 13px; color: #cbd5e1; line-height: 1.4;">
+                            K9 Search Unit & ATV ground teams actively canvassing woods and waterways in North Carolina & Virginia sectors.
+                        </p>
+                    </div>
+
+                    <div class="ops-trust-seals">
+                        <div class="trust-seal-item">
+                            <img src="assets/badge-25th-anniv.webp" alt="25 Years of Service" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2025/03/1503427-LL-25th-Anniversary-Logo-color-new-192w.webp'">
+                            <div class="trust-seal-text">
+                                <strong>25+ Years Legacy</strong>
+                                <span>Established 1994</span>
+                            </div>
+                        </div>
+                        <div class="trust-seal-item">
+                            <img src="assets/badge-top-rated.png" alt="2024 Top-Rated Non-Profit" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2025/03/2024-top-rated-badge-1.png'">
+                            <div class="trust-seal-text">
+                                <strong>2024 Top Rated</strong>
+                                <span>GreatNonprofits Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SIGNATURE SECTORS DESIGN HUB (CLIENT'S CORE REQUEST) -->
+    <section class="section-sectors" id="sectors">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Core Architectural Structure</span>
+                <h2 class="section-title">Regional Search Sectors & Nationwide Directory</h2>
+                <p class="section-subtitle">
+                    Preserving CUE Center’s foundational sector organization in an upgraded, high-speed WordPress experience. Browse active missing person registries, report regional sightings, or connect with your State Outreach Coordinator.
+                </p>
+            </div>
+
+            <!-- Sector Selection Tabs -->
+            <div class="sector-tabs-nav">
+                <button class="sector-tab-btn active" onclick="switchSector('south')">
+                    📍 South Sector <span class="tab-count">15 States</span>
+                </button>
+                <button class="sector-tab-btn" onclick="switchSector('west')">
+                    🌲 West Coast Sector <span class="tab-count">8 States</span>
+                </button>
+                <button class="sector-tab-btn" onclick="switchSector('midwest')">
+                    🌾 Midwest Sector <span class="tab-count">12 States</span>
+                </button>
+                <button class="sector-tab-btn" onclick="switchSector('northeast')">
+                    🏙️ Northeast Sector <span class="tab-count">11 States</span>
+                </button>
+                <button class="sector-tab-btn" onclick="switchSector('international')">
+                    🌐 International <span class="tab-count">Global</span>
+                </button>
+                <button class="sector-tab-btn" onclick="switchSector('unidentified')">
+                    🔍 Unidentified Doe <span class="tab-count">Cases</span>
+                </button>
+                <button class="sector-tab-btn" onclick="switchSector('homicides')">
+                    ⚖️ Unsolved Homicides <span class="tab-count">Cold Cases</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Sector Main Display (Glass Panel) -->
+            <div class="glass-panel sector-main-display" id="sectorDisplayPanel">
+                <div class="sector-media-wrap">
+                    <img id="sectorMapImage" src="assets/sector-south-map.png" alt="South Sector Map" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/07/South1.png'">
+                    <span class="sector-media-badge" id="sectorBadgeLabel">Active Coverage Region</span>
+                </div>
+
+                <div class="sector-details-content">
+                    <div class="sector-active-badge">
+                        <span class="pulse-dot" style="background: var(--accent-red);"></span>
+                        <span id="sectorTagline">Primary Regional Deployment</span>
+                    </div>
+                    <h3 class="sector-heading" id="sectorNameTitle">South Sector Registry</h3>
+                    <p class="sector-summary" id="sectorDescription">
+                        Covering North Carolina headquarters, South Carolina, Florida, Georgia, Tennessee, Virginia, Texas, Louisiana, and surrounding states. Search operations here are coordinated alongside local law enforcement, state SAR units, and dedicated volunteer networks.
+                    </p>
+
+                    <div class="states-grid-label">Covered States & Jurisdictions (Click to view cases):</div>
+                    <div class="states-tag-list" id="sectorStatesList">
+                        <span class="state-chip" onclick="filterState('North Carolina')">North Carolina</span>
+                        <span class="state-chip" onclick="filterState('South Carolina')">South Carolina</span>
+                        <span class="state-chip" onclick="filterState('Florida')">Florida</span>
+                        <span class="state-chip" onclick="filterState('Georgia')">Georgia</span>
+                        <span class="state-chip" onclick="filterState('Tennessee')">Tennessee</span>
+                        <span class="state-chip" onclick="filterState('Virginia')">Virginia</span>
+                        <span class="state-chip" onclick="filterState('Texas')">Texas</span>
+                        <span class="state-chip" onclick="filterState('Louisiana')">Louisiana</span>
+                        <span class="state-chip" onclick="filterState('Alabama')">Alabama</span>
+                        <span class="state-chip" onclick="filterState('Arkansas')">Arkansas</span>
+                        <span class="state-chip" onclick="filterState('Kentucky')">Kentucky</span>
+                        <span class="state-chip" onclick="filterState('Mississippi')">Mississippi</span>
+                        <span class="state-chip" onclick="filterState('Oklahoma')">Oklahoma</span>
+                        <span class="state-chip" onclick="filterState('Puerto Rico')">Puerto Rico</span>
+                        <span class="state-chip" onclick="filterState('West Virginia')">West Virginia</span>
+                    </div>
+
+                    <div class="sector-cta-row">
+                        <a href="javascript:void(0)" onclick="openModal('tip')" class="cta-pill cta-pill-glass" style="background: var(--accent-red); color: #fff; font-weight: 700;">
+                            Submit Tip for this Sector
+                        </a>
+                        <a href="#cases" class="cta-pill cta-pill-glass">
+                            View Active Sector Cases (248)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. OLD HOMEPAGE SECTOR BADGES REIMAGINED -->
+            <div class="old-sectors-reimagined" id="programs">
+                <div class="reimagined-title-bar">
+                    <div>
+                        <h3>CUE Signature Programs & Operational Sectors</h3>
+                        <p style="font-size: 14px; color: var(--text-muted);">From the classic homepage structure, reimagined with modern corporate glassmorphism cards</p>
+                    </div>
+                    <span class="reimagined-note">★ Preserved From Original Site</span>
+                </div>
+
+                <div class="old-sectors-grid">
+                    <!-- 1. Conference -->
+                    <div class="old-sector-card" onclick="alert('Navigating to National Missing Persons Conference details')">
+                        <div class="old-sector-thumb">
+                            <img src="assets/badge-conference.png" alt="National Missing Person Conference" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/04/cb4052_9324fda0a7114fdf947d60440512f1e9_mv2.png'">
+                        </div>
+                        <h4 class="old-sector-name">National Conference</h4>
+                        <p class="old-sector-desc">Annual training symposium for families, investigators & SAR units</p>
+                    </div>
+
+                    <!-- 2. Road to Remember -->
+                    <div class="old-sector-card" onclick="alert('Navigating to On The Road To Remember Tour')">
+                        <div class="old-sector-thumb">
+                            <img src="assets/badge-road-to-remember.png" alt="On The Road to Remember" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/04/cb4052_4046170ab9984d2bb890f3c2a93d795d_mv2.png'">
+                        </div>
+                        <h4 class="old-sector-name">Road to Remember</h4>
+                        <p class="old-sector-desc">Annual national rally tour driving awareness across states</p>
+                    </div>
+
+                    <!-- 3. Outreach -->
+                    <div class="old-sector-card" onclick="alert('Navigating to State Outreach Coordinators')">
+                        <div class="old-sector-thumb">
+                            <img src="assets/badge-outreach.png" alt="State Outreach Coordinators" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/04/cb4052_c9a922f8e1c641bca715c963222d49f7_mv2.png'">
+                        </div>
+                        <h4 class="old-sector-name">State Outreach</h4>
+                        <p class="old-sector-desc">Trained regional liaisons stationed nationwide to guide families</p>
+                    </div>
+
+                    <!-- 4. HRD K9 Seminar -->
+                    <div class="old-sector-card" onclick="alert('Navigating to HRD Specialty K9 Seminar')">
+                        <div class="old-sector-thumb">
+                            <img src="assets/badge-hrd-k9.jpg" alt="HRD Specialty K9 Seminar" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2023/09/HRD-STS-Hoodielogo-300x220.jpg'">
+                        </div>
+                        <h4 class="old-sector-name">HRD K9 Seminar</h4>
+                        <p class="old-sector-desc">Elite human remains detection & scent handler specialty certifications</p>
+                    </div>
+
+                    <!-- 5. Search Resources -->
+                    <div class="old-sector-card" onclick="alert('Navigating to Search Resources & Tools')">
+                        <div class="old-sector-thumb">
+                            <img src="assets/badge-search-tools.png" alt="Search Resources" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/04/cb4052_1daec7d857d3493a8238dc34fbe1ac4b_mv2-1-1.png'">
+                        </div>
+                        <h4 class="old-sector-name">Search Resources</h4>
+                        <p class="old-sector-desc">Sonar, GPR ground radar, mounted horse, ATV & watercraft equipment</p>
+                    </div>
+
+                    <!-- 6. Awards -->
+                    <div class="old-sector-card" onclick="alert('Navigating to Community Awards & Recognition')">
+                        <div class="old-sector-thumb">
+                            <img src="assets/badge-awards.png" alt="Awards & Recognition" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/04/cb4052_290581a176b34671804ba439ea94efc7_mv2.png'">
+                        </div>
+                        <h4 class="old-sector-name">Awards & Heroes</h4>
+                        <p class="old-sector-desc">Honoring first responders, community advocates and volunteers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROFESSIONAL SERVICES (GLASSMORPHISM CORPORATE GRID) -->
+    <section class="section-services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Immediate Support & Capabilities</span>
+                <h2 class="section-title">Comprehensive Services at Zero Cost to Families</h2>
+                <p class="section-subtitle">
+                    “I offer myself to those who have nowhere else to turn. Desperate people bound together with the commonality of being the loved one of a missing person.”
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1: Search Resources -->
+                <div class="glass-panel service-card">
+                    <div>
+                        <div class="service-icon-wrap">
+                            <img src="assets/svc-search.png" alt="Search Resources" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_dec7e034cf74477f9b63a3db513de11a_mv2-1.png'">
+                        </div>
+                        <h3 class="service-title">Search & Recovery</h3>
+                        <ul class="service-points">
+                            <li>Canvassing by foot, vehicle & neighborhood door-to-door</li>
+                            <li>Trained K9 units, divers, mounted horse & ATV teams</li>
+                            <li>Advanced sonar, ground penetrating radar (GPR) & aerial mapping</li>
+                            <li>Full command incident post & logistical support</li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0)" onclick="openModal('report')" class="service-link">Request Search Unit →</a>
+                </div>
+
+                <!-- Service 2: Family Support -->
+                <div class="glass-panel service-card">
+                    <div>
+                        <div class="service-icon-wrap">
+                            <img src="assets/svc-family.png" alt="Family Support" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_57df1be368ff4feaa53fa42452b74360_mv2.png'">
+                        </div>
+                        <h3 class="service-title">Family Advocacy</h3>
+                        <ul class="service-points">
+                            <li>24/7 care support by experienced case advocates</li>
+                            <li>Liaison between families, media & law enforcement</li>
+                            <li>Long-term care foundation for victim families left behind</li>
+                            <li>Grief, trauma, and homicide survivor counseling resources</li>
+                        </ul>
+                    </div>
+                    <a href="tel:9102321687" class="service-link">Speak with an Advocate →</a>
+                </div>
+
+                <!-- Service 3: Casework Awareness -->
+                <div class="glass-panel service-card">
+                    <div>
+                        <div class="service-icon-wrap">
+                            <img src="assets/svc-awareness.png" alt="Casework Awareness" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_c591b67648bb48e78af0204dfb236170_mv2-1-1.png'">
+                        </div>
+                        <h3 class="service-title">Casework & Media</h3>
+                        <ul class="service-points">
+                            <li>National media campaign distribution & press releases</li>
+                            <li>Rapid digital poster distribution across social networks</li>
+                            <li>Billboard resource procurement for critical cases</li>
+                            <li>Reward seed money coordination & management</li>
+                        </ul>
+                    </div>
+                    <a href="javascript:void(0)" onclick="openModal('report')" class="service-link">Submit Case Details →</a>
+                </div>
+
+                <!-- Service 4: Community Service -->
+                <div class="glass-panel service-card">
+                    <div>
+                        <div class="service-icon-wrap">
+                            <img src="assets/svc-community.png" alt="Community Service" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_a350469125d04eb48d0bfe56492aac94_mv2.png'">
+                        </div>
+                        <h3 class="service-title">Community Training</h3>
+                        <ul class="service-points">
+                            <li>Fingerprinting, DNA sampling & biometric child ID clinics</li>
+                            <li>Free public safety & missing person prevention workshops</li>
+                            <li>Professional speakers for seminars & institutional symposiums</li>
+                            <li>Volunteer search team certification courses</li>
+                        </ul>
+                    </div>
+                    <a href="#volunteer" class="service-link">Join Volunteer Team →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FIELD CAPABILITIES IN ACTION (K9 & VOLUNTEERS) -->
+    <section class="section-capabilities" id="about">
+        <div class="container">
+            <div class="capabilities-split">
+                <div class="capabilities-image-stack">
+                    <div class="cap-img-main">
+                        <img src="assets/k9-search.jpg" alt="CUE K9 Search Unit in Action" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/05/K9-Search-18-1.jpg'">
+                    </div>
+                    <div class="cap-img-floating">
+                        <img src="assets/volunteer-team.jpg" alt="Dedicated Volunteer Searchers" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/v7.jpg'">
+                    </div>
+                    <div class="cap-badge-live">
+                        <span class="pulse-dot" style="background:#34d399;"></span>
+                        <span>Certified Scent & Cadaver K9 Unit</span>
+                    </div>
+                </div>
+
+                <div class="capabilities-text">
+                    <span class="section-kicker">Deployment Capabilities</span>
+                    <h2 class="section-title">Specialized Ground, Water & K9 Search Resources</h2>
+                    <p class="section-subtitle">
+                        When a loved one goes missing, every hour is vital. CUE Center deploys credentialed specialists, forensic recovery instruments, and trained community searchers nationwide with zero billing to families.
+                    </p>
+
+                    <div class="cap-feature-list">
+                        <div class="cap-feature-item">
+                            <div class="cap-feat-icon">🐕</div>
+                            <div class="cap-feat-info">
+                                <h4>Certified K9 Search Teams</h4>
+                                <p>Human Remains Detection (HRD), trailing, and wilderness search dogs certified to locate survivors or bring closure in remote terrain.</p>
+                            </div>
+                        </div>
+
+                        <div class="cap-feature-item">
+                            <div class="cap-feat-icon">🛰️</div>
+                            <div class="cap-feat-info">
+                                <h4>Water Sonar & Ground Penetrating Radar</h4>
+                                <p>Side-scan sonar boats, certified dive squads, and ground-penetrating radar equipment to search submerged bodies of water and complex sites.</p>
+                            </div>
+                        </div>
+
+                        <div class="cap-feature-item">
+                            <div class="cap-feat-icon">🤝</div>
+                            <div class="cap-feat-info">
+                                <h4>Nationwide Volunteer Network</h4>
+                                <p>Over 12,000 volunteers across all regional sectors ready to canvass on foot, distribute flyers, and manage incident headquarters.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. ACTIVE CASES REGISTRY PREVIEW -->
+    <section class="section-cases" id="cases">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-kicker">Active Case Alerts</span>
+                <h2 class="section-title">Recent Missing Person Bulletins</h2>
+                <p class="section-subtitle">
+                    Help bring them home. If you have any information, no matter how small, please submit a tip or call our 24-hour hotline immediately.
+                </p>
+            </div>
+
+            <div class="cases-grid" id="casesGridContainer">
+                <!-- Case 1 -->
+                <div class="glass-panel case-card" data-sector="south" data-state="North Carolina">
+                    <div class="case-thumb-wrap">
+                        <img src="assets/missing-persons-collage.png" alt="Missing Person Case" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/03/missingpersons.png'">
+                        <span class="case-tag-status">Active Search</span>
+                        <span class="case-tag-sector">South Sector</span>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-name">Jessica R. Miller</h4>
+                        <div class="case-meta">
+                            <div>Missing From: <span>Wilmington, NC</span></div>
+                            <div>Date of Disappearance: <span>October 14, 2024</span></div>
+                            <div>Age / Specs: <span>27 yrs · 5'5" · 130 lbs</span></div>
+                        </div>
+                        <p class="case-desc">
+                            Last seen leaving employment near Market St. CUE K9 units and marine teams have completed initial grid searches along coastal waterways.
+                        </p>
+                        <div class="case-actions">
+                            <button class="btn-tip-case" onclick="openModal('tip', 'Jessica R. Miller (NC-2024-88)')">Submit Tip</button>
+                            <button class="btn-share-case" onclick="alert('Poster link copied to clipboard!')">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="glass-panel case-card" data-sector="south" data-state="Florida">
+                    <div class="case-thumb-wrap">
+                        <img src="assets/hero-search-team.png" alt="Missing Person Case" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/03/cb4052_63450bad109d46e1b8cbb14f55d54852_mv2.png'">
+                        <span class="case-tag-status">Endangered</span>
+                        <span class="case-tag-sector">South Sector</span>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-name">Marcus Vance Cole</h4>
+                        <div class="case-meta">
+                            <div>Missing From: <span>Jacksonville, FL</span></div>
+                            <div>Date of Disappearance: <span>August 29, 2024</span></div>
+                            <div>Age / Specs: <span>42 yrs · 6'1" · 190 lbs</span></div>
+                        </div>
+                        <p class="case-desc">
+                            Vehicle located abandoned near state park corridor. Search teams canvassing pine scrub and wooded areas with drone thermal imagery.
+                        </p>
+                        <div class="case-actions">
+                            <button class="btn-tip-case" onclick="openModal('tip', 'Marcus Vance Cole (FL-2024-11)')">Submit Tip</button>
+                            <button class="btn-share-case" onclick="alert('Poster link copied to clipboard!')">Share</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="glass-panel case-card" data-sector="midwest" data-state="Ohio">
+                    <div class="case-thumb-wrap">
+                        <img src="assets/volunteer-team.jpg" alt="Missing Person Case" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2019/02/v7.jpg'">
+                        <span class="case-tag-status">Cold Case Review</span>
+                        <span class="case-tag-sector">Midwest Sector</span>
+                    </div>
+                    <div class="case-body">
+                        <h4 class="case-name">Evelyn Harper</h4>
+                        <div class="case-meta">
+                            <div>Missing From: <span>Columbus, OH</span></div>
+                            <div>Date of Disappearance: <span>March 04, 2022</span></div>
+                            <div>Age / Specs: <span>19 yrs · 5'2" · 110 lbs</span></div>
+                        </div>
+                        <p class="case-desc">
+                            Featured on the annual "On The Road To Remember" national tour. Active billboard initiative and forensic age progression currently deployed.
+                        </p>
+                        <div class="case-actions">
+                            <button class="btn-tip-case" onclick="openModal('tip', 'Evelyn Harper (OH-2022-49)')">Submit Tip</button>
+                            <button class="btn-share-case" onclick="alert('Poster link copied to clipboard!')">Share</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. DONATION & GIVING TUESDAY MISSION FUEL -->
+    <section class="section-donation" id="donate">
+        <div class="container">
+            <div class="glass-panel donation-panel">
+                <div class="donation-copy">
+                    <span class="section-kicker" style="color: var(--accent-amber);">Fuel The Search Effort</span>
+                    <h3>Your Support Keeps Search Teams in the Field</h3>
+                    <p>
+                        Because of supporters like you, CUE Center never charges a family in crisis. Your tax-deductible gift directly funds fuel for search convoys, scent equipment for K9 units, billboard campaigns, and emergency family advocacy.
+                    </p>
+
+                    <div class="donation-perks">
+                        <div class="donation-perk-item">
+                            <span>$50</span> provides shelter, fuel, and hydration for ground searchers
+                        </div>
+                        <div class="donation-perk-item">
+                            <span>$100</span> equips specialized K9 search harnesses & scent gear
+                        </div>
+                        <div class="donation-perk-item">
+                            <span>$250</span> sponsors regional billboard & rapid social poster distribution
+                        </div>
+                        <div class="donation-perk-item">
+                            <span>$500+</span> supports multi-day deployable command operations
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donation-widget">
+                    <div style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 14px; text-transform: uppercase;">
+                        Select Donation Amount
+                    </div>
+
+                    <div class="amount-selector">
+                        <button class="amount-btn" onclick="selectAmount(25, this)">$25</button>
+                        <button class="amount-btn active" onclick="selectAmount(50, this)">$50</button>
+                        <button class="amount-btn" onclick="selectAmount(100, this)">$100</button>
+                        <button class="amount-btn" onclick="selectAmount(250, this)">$250</button>
+                        <button class="amount-btn" onclick="selectAmount(500, this)">$500</button>
+                        <button class="amount-btn" onclick="selectAmount('custom', this)">Custom</button>
+                    </div>
+
+                    <div class="custom-amount-wrap" id="customAmountBox" style="display: none;">
+                        <input type="number" placeholder="Enter custom amount in USD" class="custom-amount-input" id="customAmountInput">
+                    </div>
+
+                    <button class="btn-submit-donation" onclick="processDonation()">
+                        Donate Securely Now (Tax Exempt)
+                    </button>
+
+                    <div class="donation-guarantee">
+                        🔒 256-Bit SSL Encrypted · 501(c)(3) Official Charity Receipt Automatically Issued
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CORPORATE SPONSORS & PARTNERS -->
+    <section class="section-sponsors">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 30px;">
+                <span style="font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">
+                    A Special Thank You to Our Generous Sponsors & Partners
+                </span>
+            </div>
+
+            <div class="sponsors-grid">
+                <div class="sponsor-card">
+                    <img src="assets/sponsor-evergreen.jpg" alt="Evergreen" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2025/03/evergreen-logo.jpg'">
+                </div>
+                <div class="sponsor-card">
+                    <img src="assets/sponsor-stirling.png" alt="Mathew Stirling" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2025/02/Mathew-Stirling.png'">
+                </div>
+                <div class="sponsor-card">
+                    <img src="assets/sponsor-bemc.png" alt="Brunswick Electric (BEMC)" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2024/07/BEMC_2020_Logo_Stacked-1-300x190.png'">
+                </div>
+                <div class="sponsor-card">
+                    <img src="assets/sponsor-cepco.jpg" alt="CEPCO" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2020/02/CEPCO-REVISED-BLUE-Logo-03-2016-300x76.jpg'">
+                </div>
+                <div class="sponsor-card">
+                    <img src="assets/sponsor-lela.png" alt="Lela Tapestry" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2025/03/Lela_Tapestry_Logo2-003-1-1.png'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CORPORATE FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: About -->
+                <div class="footer-col footer-about">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                        <img src="assets/cue-logo-new.jpg" alt="CUE Center" style="height: 44px; border-radius: 6px; background:#fff; padding:3px;" onerror="this.src='https://ncmissingpersons.org/wp-content/uploads/2020/04/cue-logo-new.jpg'">
+                        <span style="font-family:'Outfit', sans-serif; font-size:18px; font-weight:800; color:#fff;">CUE CENTER</span>
+                    </div>
+                    <p>
+                        Community United Effort (CUE) Center for Missing Persons is a 501(c)(3) tax-exempt non-profit organization founded in Wilmington, North Carolina, serving missing persons nationwide.
+                    </p>
+                    <p style="font-size: 13px; color: var(--accent-amber); font-weight: 700;">
+                        Every Missing Person Is Somebody’s Child.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Our Mission</a></li>
+                        <li><a href="#sectors">Regional Sectors</a></li>
+                        <li><a href="#programs">Signature Programs</a></li>
+                        <li><a href="#services">Professional Services</a></li>
+                        <li><a href="#cases">Active Case Directory</a></li>
+                        <li><a href="#donate">Donate to the Search</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Sectors -->
+                <div class="footer-col">
+                    <h4>Regional Sectors</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sectors" onclick="switchSector('south')">South Sector</a></li>
+                        <li><a href="#sectors" onclick="switchSector('west')">West Coast Sector</a></li>
+                        <li><a href="#sectors" onclick="switchSector('midwest')">Midwest Sector</a></li>
+                        <li><a href="#sectors" onclick="switchSector('northeast')">Northeast Sector</a></li>
+                        <li><a href="#sectors" onclick="switchSector('international')">International Cases</a></li>
+                        <li><a href="#sectors" onclick="switchSector('unidentified')">Unidentified Persons</a></li>
+                        <li><a href="#sectors" onclick="switchSector('homicides')">Unsolved Homicides</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Hotline -->
+                <div class="footer-col">
+                    <h4>Keep In Touch</h4>
+                    <div class="footer-contact-item">
+                        <span>🚨</span>
+                        <div>
+                            <strong>24-Hour Emergency Line:</strong><br>
+                            <a href="tel:9102321687" style="color: #fca5a5; font-weight: 700;">(910) 232-1687</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <div>
+                            <strong>Secondary Operations:</strong><br>
+                            <a href="tel:9103996137">(910) 399-6137</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>✉️</span>
+                        <div>
+                            <strong>Direct Inquiries:</strong><br>
+                            <a href="mailto:cuecenter@aol.com">cuecenter@aol.com</a>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📫</span>
+                        <div>
+                            <strong>Mailing Address:</strong><br>
+                            PO Box 12714, Wilmington, NC 28405
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    © 2026 Community United Effort (CUE) Center for Missing Persons. All Rights Reserved.
+                </div>
+                <div>
+                    Modernized Corporate WordPress Concept · Designed with Glassmorphism & High-Speed Gutenberg Architecture
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 12. INTERACTIVE MODAL FOR TIP & MISSING PERSON REPORT -->
+    <div class="modal-overlay" id="interactiveModal">
+        <div class="modal-card">
+            <button class="modal-close-btn" onclick="closeModal()">✕</button>
+            <div id="modalTipContent">
+                <span class="section-kicker" style="color: var(--accent-red);">Confidential Dispatch</span>
+                <h3 style="font-family:'Outfit', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px;">
+                    Submit a Confidential Tip
+                </h3>
+                <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
+                    Your information is held in strict confidence. Tips are relayed immediately to lead search directors and assigned law enforcement liaisons.
+                </p>
+
+                <form onsubmit="submitForm(event, 'Tip received securely. Thank you for helping bring answers home.')">
+                    <div class="form-group">
+                        <label class="form-label">Related Case Name / Sector (Optional)</label>
+                        <input type="text" id="tipCaseInput" placeholder="e.g. Jessica Miller or South Sector" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Sighting or Information *</label>
+                        <textarea required placeholder="Please describe dates, locations, vehicle sightings, physical characteristics, or any relevant details..." class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Your Name or Anonymous Code</label>
+                        <input type="text" placeholder="Leave blank to remain 100% anonymous" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Contact Phone / Email (Optional for followup)</label>
+                        <input type="text" placeholder="Phone number or email" class="form-control">
+                    </div>
+                    <button type="submit" class="btn-glass-donate" style="width: 100%; justify-content: center; margin-top: 10px;">
+                        Transmit Tip Confidentially
+                    </button>
+                </form>
+            </div>
+
+            <div id="modalReportContent" style="display: none;">
+                <span class="section-kicker" style="color: var(--accent-red);">Intake Assessment</span>
+                <h3 style="font-family:'Outfit', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px;">
+                    File a Missing Person Case Report
+                </h3>
+                <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
+                    For active missing person emergencies, ensure a police report has been filed first, then notify CUE Center immediately.
+                </p>
+
+                <form onsubmit="submitForm(event, 'Case report transmitted to CUE Center Intake Directors. An advocate will reach out promptly.')">
+                    <div class="form-group">
+                        <label class="form-label">Missing Person Full Name *</label>
+                        <input type="text" required placeholder="Full legal name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Investigating Police Agency & Report # *</label>
+                        <input type="text" required placeholder="e.g. Wilmington Police Dept - Case #12345" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Date & Location Last Seen *</label>
+                        <input type="text" required placeholder="City, State, Date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Family / Reporting Contact Phone *</label>
+                        <input type="tel" required placeholder="Primary contact phone number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Case Background & Circumstances</label>
+                        <textarea placeholder="Medical conditions, vehicle info, possible destinations..." class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn-glass-report" style="width: 100%; justify-content: center; margin-top: 10px; background: var(--accent-red); color: #fff;">
+                        Submit Case for Immediate Deployment Review
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Client Script -->
+    <script>
+        // Sector Data Mapping
+        const sectorData = {
+            south: {
+                title: "South Sector Registry",
+                tagline: "Primary Regional Deployment",
+                badge: "Active Coverage Region",
+                image: "assets/sector-south-map.png",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/07/South1.png",
+                description: "Covering North Carolina headquarters, South Carolina, Florida, Georgia, Tennessee, Virginia, Texas, Louisiana, and surrounding states. Search operations here are coordinated alongside local law enforcement, state SAR units, and dedicated volunteer networks.",
+                states: ["North Carolina", "South Carolina", "Florida", "Georgia", "Tennessee", "Virginia", "Texas", "Louisiana", "Alabama", "Arkansas", "Kentucky", "Mississippi", "Oklahoma", "Puerto Rico", "West Virginia"]
+            },
+            west: {
+                title: "West Coast Sector Registry",
+                tagline: "Pacific & Mountain Search Operations",
+                badge: "Western Division",
+                image: "assets/hero-search-team.png",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/03/cb4052_63450bad109d46e1b8cbb14f55d54852_mv2.png",
+                description: "Covering California, Washington, Oregon, Nevada, Arizona, Idaho, Alaska, and Hawaii. Specializing in expansive wilderness, mountainous search coordination, and multi-agency missing person liaisons.",
+                states: ["California", "Washington", "Oregon", "Nevada", "Arizona", "Idaho", "Alaska", "Hawaii"]
+            },
+            midwest: {
+                title: "Midwest Sector Registry",
+                tagline: "Heartland & Great Lakes Coverage",
+                badge: "Central Division",
+                image: "assets/volunteer-team.jpg",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/02/v7.jpg",
+                description: "Covering Illinois, Ohio, Michigan, Indiana, Missouri, Minnesota, Wisconsin, Iowa, Kansas, Nebraska, North Dakota, and South Dakota with seasoned community search directors.",
+                states: ["Illinois", "Ohio", "Michigan", "Indiana", "Missouri", "Minnesota", "Wisconsin", "Iowa", "Kansas", "Nebraska"]
+            },
+            northeast: {
+                title: "Northeast Sector Registry",
+                tagline: "Atlantic & New England Operations",
+                badge: "Northeast Division",
+                image: "assets/k9-search.jpg",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/05/K9-Search-18-1.jpg",
+                description: "Covering New York, Pennsylvania, New Jersey, Massachusetts, Connecticut, Maine, New Hampshire, Rhode Island, Vermont, Maryland, Delaware, and Washington D.C.",
+                states: ["New York", "Pennsylvania", "New Jersey", "Massachusetts", "Connecticut", "Maine", "Maryland", "Delaware"]
+            },
+            international: {
+                title: "International Cases Registry",
+                tagline: "Cross-Border Family Advocacy",
+                badge: "Global Coordination",
+                image: "assets/missing-persons-collage.png",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/03/missingpersons.png",
+                description: "Supporting U.S. citizens missing abroad, international embassy liaisons, and cross-border missing person investigations in coordination with international agencies.",
+                states: ["Canada", "Mexico", "Caribbean", "Central America", "Europe", "Worldwide Cases"]
+            },
+            unidentified: {
+                title: "Unidentified Doe Registry",
+                tagline: "DNA & Forensic Identification",
+                badge: "NamUs & Forensic Database",
+                image: "assets/svc-community.png",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_a350469125d04eb48d0bfe56492aac94_mv2.png",
+                description: "A dedicated repository cross-referencing unidentified remains with national missing person reports, dental records, forensic anthropology reconstructions, and DNA databases.",
+                states: ["All 50 States", "NamUs Cross-Match", "Forensic DNA Vault", "Facial Reconstructions"]
+            },
+            homicides: {
+                title: "Unsolved Homicides & Cold Cases",
+                tagline: "Seeking Justice & Long-Term Closure",
+                badge: "Cold Case Division",
+                image: "assets/svc-awareness.png",
+                fallbackImage: "https://ncmissingpersons.org/wp-content/uploads/2019/02/cb4052_c591b67648bb48e78af0204dfb236170_mv2-1-1.png",
+                description: "Providing continued public awareness, billboard sponsorships, and investigative resources for unsolved homicide cases that have gone cold.",
+                states: ["Cold Case Review", "Unsolved Mysteries", "Victim Advocate Program", "Annual Road to Remember"]
+            }
+        };
+
+        function switchSector(key) {
+            const data = sectorData[key];
+            if (!data) return;
+
+            // Update tab button styles
+            const buttons = document.querySelectorAll('.sector-tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase().includes(key.substring(0, 4))) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update UI
+            document.getElementById('sectorNameTitle').innerText = data.title;
+            document.getElementById('sectorTagline').innerText = data.tagline;
+            document.getElementById('sectorBadgeLabel').innerText = data.badge;
+            document.getElementById('sectorDescription').innerText = data.description;
+            
+            const mapImg = document.getElementById('sectorMapImage');
+            mapImg.src = data.image;
+            mapImg.onerror = function() { this.src = data.fallbackImage; };
+
+            // Render State Chips
+            const list = document.getElementById('sectorStatesList');
+            list.innerHTML = '';
+            data.states.forEach(st => {
+                const chip = document.createElement('span');
+                chip.className = 'state-chip';
+                chip.innerText = st;
+                chip.onclick = function() { filterState(st); };
+                list.appendChild(chip);
+            });
+        }
+
+        // Filter cases by state
+        function filterState(stateName) {
+            alert(`Filtering cases for state: ${stateName}. In the full WordPress site, this instantly queries the custom 'Missing Persons' post type by state taxonomy!`);
+            const cards = document.querySelectorAll('.case-card');
+            cards.forEach(card => {
+                const cardState = card.getAttribute('data-state');
+                if (cardState && cardState.toLowerCase() === stateName.toLowerCase()) {
+                    card.style.display = 'flex';
+                    card.style.border = '2px solid var(--accent-amber)';
+                } else {
+                    card.style.border = '1px solid var(--border-glass)';
+                }
+            });
+            window.location.hash = '#cases';
+        }
+
+        // Search bar filter
+        function executeSearch() {
+            const query = document.getElementById('caseSearchInput').value.toLowerCase().trim();
+            if (!query) {
+                alert('Please enter a name or location to search.');
+                return;
+            }
+            alert(`Searching for "${query}" across all regional sectors...`);
+            window.location.hash = '#cases';
+        }
+
+        function filterCasesBySector(sec) {
+            if (sec === 'all') {
+                document.querySelectorAll('.case-card').forEach(c => c.style.display = 'flex');
+            } else {
+                document.querySelectorAll('.case-card').forEach(c => {
+                    const cardSec = c.getAttribute('data-sector');
+                    c.style.display = (cardSec === sec) ? 'flex' : 'none';
+                });
+            }
+        }
+
+        // Modal Controls
+        function openModal(type, casePrefill = '') {
+            const overlay = document.getElementById('interactiveModal');
+            const tipBox = document.getElementById('modalTipContent');
+            const reportBox = document.getElementById('modalReportContent');
+
+            if (type === 'tip') {
+                tipBox.style.display = 'block';
+                reportBox.style.display = 'none';
+                if (casePrefill) {
+                    document.getElementById('tipCaseInput').value = casePrefill;
+                }
+            } else {
+                tipBox.style.display = 'none';
+                reportBox.style.display = 'block';
+            }
+
+            overlay.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('interactiveModal').classList.remove('active');
+        }
+
+        function submitForm(e, msg) {
+            e.preventDefault();
+            alert(msg);
+            closeModal();
+        }
+
+        // Donation Selector
+        let selectedDonation = 50;
+        function selectAmount(amt, btn) {
+            document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const customBox = document.getElementById('customAmountBox');
+            if (amt === 'custom') {
+                customBox.style.display = 'block';
+                selectedDonation = 'custom';
+            } else {
+                customBox.style.display = 'none';
+                selectedDonation = amt;
+            }
+        }
+
+        function processDonation() {
+            let finalAmt = selectedDonation;
+            if (selectedDonation === 'custom') {
+                finalAmt = document.getElementById('customAmountInput').value || 100;
+            }
+            alert(`Thank you! Processing $${finalAmt} tax-deductible gift via secure WordPress GiveWP/WooCommerce gateway for CUE Center for Missing Persons.`);
+        }
+    </script>
+</body>
+</html>
